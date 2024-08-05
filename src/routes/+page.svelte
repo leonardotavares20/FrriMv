@@ -1,8 +1,30 @@
 <script lang="ts">
+  import { onMount } from "svelte";
   import "../app.css";
+  import gsap from "gsap";
+
+  onMount(() => {
+    gsap.to(".container-preload__logo", {
+      scale: 1.2,
+      duration: 10
+    });
+  });
 </script>
 
-<h1>Welcome to SvelteKit</h1>
-<p class="text-orange-400">
-  Visit <a href="https://kit.svelte.dev">kit.svelte.dev</a> to read the documentation
-</p>
+<svelte:head>
+  <title>Ferrari - Movie</title>
+</svelte:head>
+
+<div class="container-preload">
+  <img class="container-preload__logo" src="/logo/logo.svg" alt="" />
+</div>
+
+<style>
+  .container-preload {
+    @apply h-dvh flex justify-center items-center;
+  }
+
+  .container-preload__logo {
+    @apply scale-100;
+  }
+</style>
