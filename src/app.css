@@ -3,5 +3,5 @@
 @tailwind utilities;
 
 body {
-    @apply h-dvh bg-black overflow-x-hidden
+    @apply h-dvh bg-black overflow-hidden
 }
