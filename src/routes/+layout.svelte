@@ -2,6 +2,10 @@
   import "../app.css";
 </script>
 
+<svelte:head>
+  <title>Ferrari - Movie</title>
+</svelte:head>
+
 <div class="app">
   <main>
     <slot></slot>
