@@ -2,6 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
+@font-face {
+  font-family: "Futura";
+  src: url("/fonts/futura_bt/futura-medium-condensed-bt.ttf")
+    format("opentype");
+}
+
 body {
-    @apply h-dvh bg-black overflow-hidden
+  font-family: "Futura";
+  @apply h-dvh bg-black overflow-hidden;
 }
