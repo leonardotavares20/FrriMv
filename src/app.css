@@ -2,13 +2,24 @@
 @tailwind components;
 @tailwind utilities;
 
-@font-face {
-  font-family: "Futura";
-  src: url("/fonts/futura_bt/futura-medium-condensed-bt.ttf")
-    format("opentype");
-}
+@layer base {
+  @font-face {
+    font-family: "Futura BT Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/futura_bt/futura-medium-condensed-bt.ttf) format("opentype");
+  }
 
-body {
-  font-family: "Futura";
-  @apply h-dvh bg-black overflow-hidden;
+  @font-face {
+    font-family: "Futura LT Condensed";
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+    src: url(/fonts/futura_lt/FuturaLT-CondensedBold.ttf) format("opentype");
+  }
+
+  body {
+    @apply h-dvh bg-black overflow-hidden;
+  }
 }
