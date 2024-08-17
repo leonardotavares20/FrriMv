@@ -51,7 +51,7 @@
       .to(
         ".container_preload__logo",
         {
-          top: "87%",
+          top: "98%",
           width: "98%",
           ease: "power2.out",
           duration: 0.8,
@@ -88,7 +88,7 @@
       .to(
         ".container_preload__logo",
         {
-          top: "87%",
+          top: "98%",
           width: "98%",
           ease: "power2.out",
           duration: 0.6,
@@ -141,7 +141,7 @@
   }
 
   .container_preload__logo {
-    @apply top-2/4 absolute select-none py-[25px] w-[60%] translate-y-[-50%];
+    @apply absolute select-none w-[60%] top-[57%] -translate-y-full max-xl:top-[55%];
   }
 
   .container_preload__container_video {

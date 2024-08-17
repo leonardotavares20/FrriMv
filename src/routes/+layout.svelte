@@ -7,7 +7,7 @@
 </svelte:head>
 
 <div class="app">
-  <main>
+  <main class="app_main">
     <slot></slot>
   </main>
   <footer></footer>
@@ -15,6 +15,10 @@
 
 <style>
   .app {
-    @apply h-full;
+    @apply h-[100vh];
+  }
+
+  .app_main {
+    @apply h-[100vh] overflow-y-auto;
   }
 </style>
