@@ -41,6 +41,14 @@
         "6.4",
       )
       .to(
+        ".container_preload__container_copy_click",
+        {
+          opacity: 0,
+          duration: 0.4,
+        },
+        6.4,
+      )
+      .to(
         ".container_preload__logo",
         {
           top: "87%",
@@ -70,12 +78,20 @@
         },
       })
       .to(
+        ".container_preload__container_copy_click",
+        {
+          opacity: 0,
+          duration: 0.4,
+        },
+        0.15,
+      )
+      .to(
         ".container_preload__logo",
         {
           top: "87%",
           width: "98%",
           ease: "power2.out",
-          duration: 0.8,
+          duration: 0.6,
         },
         "<",
       );
