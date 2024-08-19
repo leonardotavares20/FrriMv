@@ -23,7 +23,11 @@
     @apply m-0 p-0 box-border;
   }
 
+  html {
+    @apply overflow-hidden;
+  }
+
   body {
-    @apply h-dvh bg-black ;
+    @apply h-dvh bg-black overflow-y-hidden;
   }
 }

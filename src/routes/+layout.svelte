@@ -19,6 +19,6 @@
   }
 
   .app_main {
-    @apply h-[100vh] overflow-y-auto;
+    @apply h-[100vh];
   }
 </style>
