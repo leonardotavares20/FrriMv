@@ -10,8 +10,23 @@
 
   let preloadFinished: boolean = false;
 
+  function preventScroll(event) {
+    event.preventDefault();
+  }
+
+  function lockScroll() {
+    document.addEventListener("wheel", preventScroll, { passive: false });
+    document.addEventListener("touchmove", preventScroll, { passive: false });
+  }
+
+  function unlockScroll() {
+    document.removeEventListener("wheel", preventScroll, { passive: true });
+    document.removeEventListener("touchmove", preventScroll, {passive: true});
+  }
+
   onMount(() => {
-    timeline = gsap.timeline({ paused: false });
+    document.body.scrollTo(0, 0);
+    timeline = gsap.timeline({ paused: false, onStart: lockScroll() });
 
     timeline
       .to(
@@ -20,6 +35,9 @@
           width: "90%",
           ease: "power1.inOut",
           duration: 7,
+          onStart: () => {
+            // lockScroll();
+          },
         },
         1.1,
       )
@@ -59,6 +77,7 @@
           duration: 0.8,
           onComplete: () => {
             preloadFinished = true;
+            unlockScroll();
           },
         },
         "7.6",
@@ -99,6 +118,7 @@
           duration: 0.6,
           onComplete: () => {
             preloadFinished = true;
+            unlockScroll();
           },
         },
         "<",
@@ -109,7 +129,7 @@
 <div class="h-dvh relative grid items-end justify-center">
   {#if !preloadFinished}
     <div
-      class="bg-black h-dvh absolute flex flex-col justify-center items-center"
+      class="bg-black h-dvh fixed flex flex-col justify-center items-center"
       on:click={skipToEnd}
       aria-hidden="true"
       aria-label="Skip to end"
@@ -156,3 +176,4 @@
     <img class="w-[98vw] pt-6 bottom-0 self-end" src="/logo/logo.svg" alt="" />
   </div>
 </div>
+<div class="h-[100vh]"></div>
