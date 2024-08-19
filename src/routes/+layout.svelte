@@ -6,19 +6,9 @@
   <title>Ferrari - Movie</title>
 </svelte:head>
 
-<div class="app">
-  <main class="app_main">
+<div class="app h-[100vh]">
+  <main class="h-[100vh]">
     <slot></slot>
   </main>
   <footer></footer>
 </div>
-
-<style>
-  .app {
-    @apply h-[100vh];
-  }
-
-  .app_main {
-    @apply h-[100vh];
-  }
-</style>
