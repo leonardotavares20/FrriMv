@@ -5,7 +5,7 @@
 <div class="uppercase text-center font-semibold">
   <span class="flex justify-center text-xs gap-1">
     A <NeonLogo /> Movie
-  </span>i
+  </span>
   <p class="text-[8px] mt-1 font-semibold">Copyrights © Neon 2023</p>
   <p class="text-[8px] font-semibold">All rights reserved</p>
 </div>
