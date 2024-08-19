@@ -21,7 +21,17 @@
 
   function unlockScroll() {
     document.removeEventListener("wheel", preventScroll, { passive: true });
-    document.removeEventListener("touchmove", preventScroll, {passive: true});
+    document.removeEventListener("touchmove", preventScroll, { passive: true });
+  }
+
+  let currentIndex: number | null = null;
+
+  function handleIndex(index: number) {
+    currentIndex = index;
+  }
+
+  function handleLeave() {
+    currentIndex = null;
   }
 
   onMount(() => {
@@ -36,7 +46,7 @@
           ease: "power1.inOut",
           duration: 7,
           onStart: () => {
-            // lockScroll();
+            lockScroll();
           },
         },
         1.1,
@@ -78,6 +88,11 @@
           onComplete: () => {
             preloadFinished = true;
             unlockScroll();
+            gsap.to(".column", {
+              opacity: 1,
+              stagger: 0.5,
+              duration: 0.5,
+            });
           },
         },
         "7.6",
@@ -119,6 +134,12 @@
           onComplete: () => {
             preloadFinished = true;
             unlockScroll();
+            gsap.to(".column", {
+              opacity: 1,
+              stagger: 0.5,
+              duration: 0.5,
+              transition: "0.5s",
+            });
           },
         },
         "<",
@@ -129,7 +150,7 @@
 <div class="h-dvh relative grid items-end justify-center">
   {#if !preloadFinished}
     <div
-      class="bg-black h-dvh fixed flex flex-col justify-center items-center"
+      class="bg-black h-dvh fixed z-20 flex flex-col justify-center items-center"
       on:click={skipToEnd}
       aria-hidden="true"
       aria-label="Skip to end"
@@ -139,7 +160,7 @@
           alt=""
           src="/logo/logo.svg"
           id="container_preload__logo"
-          class=" absolute select-none w-[60%] top-[57%] -translate-y-full max-xl:top-[55%] pb-6"
+          class=" absolute select-none w-[60%] top-[60%] -translate-y-full max-xl:top-[55%] pb-6"
         />
       </div>
       <div
@@ -167,13 +188,29 @@
     </div>
   {/if}
   <div class="w-svw grid h-[100vh] p-6 grid-rows-home_rows justify-center">
-    <div class="grid gap-4 grid-cols-4 justify-center">
-      <div class="bg-red-600"></div>
-      <div class="bg-red-600"></div>
-      <div class="bg-red-600"></div>
-      <div class="bg-red-600"></div>
+    <div class="grid grid-cols-4 justify-center">
+      {#each Array(4) as _, index}
+        <div
+          aria-hidden="true"
+          on:mouseleave={handleLeave}
+          on:mouseenter={handleIndex.bind(null, index)}
+          class:active={index === currentIndex}
+          class:off={currentIndex !== null && currentIndex !== index}
+          class="bg-red-600 opacity-0 cursor-pointer column"
+        ></div>
+      {/each}
     </div>
     <img class="w-[98vw] pt-6 bottom-0 self-end" src="/logo/logo.svg" alt="" />
   </div>
 </div>
 <div class="h-[100vh]"></div>
+
+<style>
+  .active {
+    @apply bg-purple-50 transition-all;
+  }
+
+  .off {
+    @apply opacity-10 transition-all brightness-50;
+  }
+</style>
