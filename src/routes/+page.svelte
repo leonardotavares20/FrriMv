@@ -196,8 +196,23 @@
           on:mouseenter={handleIndex.bind(null, index)}
           class:active={index === currentIndex}
           class:off={currentIndex !== null && currentIndex !== index}
-          class="bg-red-600 opacity-0 cursor-pointer column"
-        ></div>
+          class="bg-red-600 opacity-1 cursor-pointer column"
+        >
+          <div
+            class:first={index === 0}
+            class:last={index === 3}
+            class="p-3 h-full grid grid-rows-home_columns"
+          >
+            <div class="w-full">
+              <img
+                alt=""
+                src="/images_grid/grid_one.webp"
+                class="w-full h-full select-none object-cover"
+              />
+            </div>
+            <h2>Title</h2>
+          </div>
+        </div>
       {/each}
     </div>
     <img class="w-[98vw] pt-6 bottom-0 self-end" src="/logo/logo.svg" alt="" />
@@ -207,10 +222,18 @@
 
 <style>
   .active {
-    @apply bg-purple-50 transition-all;
+    @apply transition-all;
   }
 
   .off {
-    @apply opacity-10 transition-all brightness-50;
+    @apply opacity-100 transition-all brightness-50;
+  }
+
+  .first {
+    @apply pl-0;
+  }
+
+  .last {
+    @apply pr-0;
   }
 </style>
