@@ -63,7 +63,7 @@
 
   onMount(() => {
     document.body.scrollTo(0, 0);
-    timeline = gsap.timeline({ paused: false, onStart: lockScroll() });
+    timeline = gsap.timeline({ paused: false });
 
     timeline
       .to(
@@ -174,7 +174,7 @@
 <div class="h-dvh relative grid items-end justify-center">
   {#if !preloadFinished}
     <div
-      class="bg-black h-dvh fixed z-20 flex flex-col justify-center items-center"
+      class="bg-black h-dvh fixed z-50 flex flex-col justify-center items-center"
       on:click={skipToEnd}
       aria-hidden="true"
       aria-label="Skip to end"
@@ -211,25 +211,26 @@
       </div>
     </div>
   {/if}
-  <div class="w-svw grid h-[100vh] p-6 grid-rows-home_rows justify-center">
+  <div class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center">
+    <div>oi</div>
     <div class="grid grid-cols-4 justify-center">
       {#each chapters as chapter, index}
-        <div
-          aria-hidden="true"
-          on:mouseleave={handleLeave}
-          on:mouseenter={handleIndex.bind(null, index)}
-          class="opacity-100 cursor-pointer column"
-        >
+        <div class="opacity-0 grid column h-">
           <div
             class:first={index === 0}
             class:last={index === 3}
-            class="p-3 h-full grid grid-rows-home_columns text-center"
+            class="p-3 h-full grid grid-rows-column_row text-center"
           >
-            <div class="w-full h-[95%] self-end">
+            <div
+              aria-hidden="true"
+              on:mouseleave={handleLeave}
+              on:mouseenter={handleIndex.bind(null, index)}
+              class="w-full relative overflow-hidden cursor-pointer object-cover h-full self-end"
+            >
               <img
                 alt={chapter.description}
                 src={chapter.src}
-                class="w-full h-full select-none object-cover"
+                class="w-full absolute left-0 right-0 bottom-0 top-0 h-full select-none object-cover"
               />
             </div>
             <h2
@@ -246,7 +247,11 @@
         </div>
       {/each}
     </div>
-    <img class="w-[98vw] pt-6 bottom-0 self-end" src="/logo/logo.svg" alt="" />
+    <img
+      class="w-[98vw] h-full pt-6 bottom-0 self-end"
+      src="/logo/logo.svg"
+      alt=""
+    />
   </div>
 </div>
 <div class="h-[100vh]"></div>
