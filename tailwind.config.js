@@ -9,10 +9,11 @@ export default {
       fontFamily: {
         futura_bt: ["Futura BT Condensed", "sans-serif"],
         futura_lt: ["Futura LT Condensed", "sans-serif"],
+        futura_lt_bold: ["Futura LT Condensed Bold", "sans-serif"],
       },
       gridTemplateRows: {
-        home_rows: "3fr 1fr",
-        home_columns: "10fr 1fr",
+        home_rows: "4fr 1fr",
+        home_columns: "9fr 1fr",
       },
     },
   },

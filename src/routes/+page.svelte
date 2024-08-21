@@ -5,12 +5,39 @@
   import NeonCopyTerms from "@/components/neon_copy_terms.svelte";
   import { theme } from "@/stores/theme";
 
+  let chapters = [
+    {
+      title: "Becoming",
+      description: "The Ferrari World",
+      src: "/images_grid/grid_one.webp",
+      chapter: "CHapter One",
+    },
+    {
+      title: "Making",
+      description: "The Ferrari World",
+      src: "/images_grid/grid_two.webp",
+      chapter: "CHapter Two",
+    },
+    {
+      title: "The Stories Of",
+      description: "The Ferrari World",
+      src: "/images_grid/grid_three.webp",
+      chapter: "CHapter Three",
+    },
+    {
+      title: "Gallery",
+      description: "The Ferrari World",
+      src: "/images_grid/grid_four.webp",
+      chapter: "View",
+    },
+  ];
+
   let timeline: GSAPTimeline;
   let preload_video: HTMLVideoElement;
 
   let preloadFinished: boolean = false;
 
-  function preventScroll(event) {
+  function preventScroll(event: WheelEvent | TouchEvent) {
     event.preventDefault();
   }
 
@@ -20,8 +47,8 @@
   }
 
   function unlockScroll() {
-    document.removeEventListener("wheel", preventScroll, { passive: true });
-    document.removeEventListener("touchmove", preventScroll, { passive: true });
+    document.removeEventListener("wheel", preventScroll);
+    document.removeEventListener("touchmove", preventScroll);
   }
 
   let currentIndex: number | null = null;
@@ -68,7 +95,7 @@
           opacity: 0,
           duration: 0.4,
         },
-        "7.6",
+        7.6,
       )
       .to(
         "#container_preload__container_copy_click",
@@ -76,7 +103,7 @@
           opacity: 0,
           duration: 0.4,
         },
-        6.4,
+        7.4,
       )
       .to(
         "#container_preload__logo",
@@ -91,11 +118,10 @@
             gsap.to(".column", {
               opacity: 1,
               stagger: 0.5,
-              duration: 0.5,
             });
           },
         },
-        "7.6",
+        7.6,
       );
   });
 
@@ -137,8 +163,6 @@
             gsap.to(".column", {
               opacity: 1,
               stagger: 0.5,
-              duration: 0.5,
-              transition: "0.5s",
             });
           },
         },
@@ -189,28 +213,35 @@
   {/if}
   <div class="w-svw grid h-[100vh] p-6 grid-rows-home_rows justify-center">
     <div class="grid grid-cols-4 justify-center">
-      {#each Array(4) as _, index}
+      {#each chapters as chapter, index}
         <div
           aria-hidden="true"
           on:mouseleave={handleLeave}
           on:mouseenter={handleIndex.bind(null, index)}
-          class:active={index === currentIndex}
-          class:off={currentIndex !== null && currentIndex !== index}
-          class="bg-red-600 opacity-1 cursor-pointer column"
+          class="opacity-100 cursor-pointer column"
         >
           <div
             class:first={index === 0}
             class:last={index === 3}
-            class="p-3 h-full grid grid-rows-home_columns"
+            class="p-3 h-full grid grid-rows-home_columns text-center"
           >
-            <div class="w-full">
+            <div class="w-full h-[95%] self-end">
               <img
-                alt=""
-                src="/images_grid/grid_one.webp"
+                alt={chapter.description}
+                src={chapter.src}
                 class="w-full h-full select-none object-cover"
               />
             </div>
-            <h2>Title</h2>
+            <h2
+              class:active={index === currentIndex}
+              class:off={currentIndex !== null && currentIndex !== index}
+              class="text-hells_red leading-7 transition-all pt-2 flex flex-col font-futura_lt_bold text-[40px] uppercase"
+            >
+              <span class="text-[12px] font-normal font-futura_bt"
+                >{chapter.chapter}</span
+              >
+              {chapter.title}
+            </h2>
           </div>
         </div>
       {/each}
@@ -230,10 +261,10 @@
   }
 
   .first {
-    @apply pl-0;
+    @apply pl-0 text-start;
   }
 
   .last {
-    @apply pr-0;
+    @apply pr-0 text-end;
   }
 </style>
