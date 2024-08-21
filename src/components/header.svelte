@@ -1,11 +1,11 @@
 <script lang="ts">
 </script>
 
-<header class="fixed w-[100vw] h-[10px] z-20 top-6 header">
+<header class="fixed w-[100vw] h-4 z-10 top-6 header">
   <div
-    class="flex justify-between px-5 text-[12px] text-hells_red font-futura_lt uppercase cursor-pointer"
+    class="flex justify-between px-5 text-[12px] text-hells_red font-futura_lt uppercase"
   >
-    <div class="w-[20vw] max-w-[150px] flex justify-between">
+    <div class="w-[20vw] max-w-[165px] flex justify-between">
       <a class="hover:underline" href="/">Ferrari</a>
       <a class="hover:underline" href="/">Get Tickets</a>
     </div>
