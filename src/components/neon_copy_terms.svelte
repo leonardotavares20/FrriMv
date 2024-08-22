@@ -2,7 +2,9 @@
   import NeonLogo from "@/components/neon_logo.svelte";
 </script>
 
-<div class="uppercase w-24 font-futura_bt text-hells_red text-center font-semibold">
+<div
+  class="uppercase w-24 font-futura_bt text-hells_red text-center font-semibold"
+>
   <span class="flex justify-center text-xs gap-1">
     A <NeonLogo /> Movie
   </span>
