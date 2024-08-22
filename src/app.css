@@ -65,7 +65,7 @@
     @apply bg-[#FDF003] text-black;
   }
 
-  image {
+  img {
     @apply select-none;
   }
 }
