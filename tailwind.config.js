@@ -5,11 +5,13 @@ export default {
     extend: {
       colors: {
         hells_red: "#CE0000",
+        areolin: "#FDF003",
       },
       fontFamily: {
         futura_bt: ["Futura BT Condensed", "sans-serif"],
         futura_lt: ["Futura LT Condensed", "sans-serif"],
         futura_lt_bold: ["Futura LT Condensed Bold", "sans-serif"],
+        century: ["Century Regular", "sans-serif"],
       },
       gridTemplateRows: {
         home_rows: "50px 5fr 1fr",
