@@ -7,9 +7,9 @@
   <title>Ferrari - Movie</title>
 </svelte:head>
 
-<div class="app ">
+<div class="app">
   <Header />
-  <main class="">
+  <main>
     <slot></slot>
   </main>
   <footer></footer>
