@@ -1,6 +1,6 @@
 import gsap from "gsap";
 import { BaseTimeline } from "@/lib/animations/bases/BaseTimeline";
-import { lockScroll, unlockScroll } from "@/lib/helpers/preload";
+import { lockScroll, unlockScroll, showColumns } from "@/lib/helpers/preload";
 import { startVideo, pauseVideo, preloadFinished } from "@/lib/stores/preload";
 
 export class PreloadTimeline extends BaseTimeline {
@@ -60,10 +60,7 @@ export class PreloadTimeline extends BaseTimeline {
             preloadFinished.set(true);
             pauseVideo.set(true);
             unlockScroll();
-            gsap.to("#column", {
-              opacity: 1,
-              stagger: 0.5,
-            });
+            showColumns();
           },
         },
         7.6,
