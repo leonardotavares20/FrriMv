@@ -16,16 +16,6 @@
     event.preventDefault();
   }
 
-  function lockScroll() {
-    document.addEventListener("wheel", preventScroll, { passive: false });
-    document.addEventListener("touchmove", preventScroll, { passive: false });
-  }
-
-  function unlockScroll() {
-    document.removeEventListener("wheel", preventScroll);
-    document.removeEventListener("touchmove", preventScroll);
-  }
-
   let currentIndex: number | null = null;
 
   function handleIndex(index: number) {
