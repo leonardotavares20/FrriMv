@@ -1,13 +1,13 @@
 <script lang="ts">
-  import { onMount } from "svelte";
   import "../app.css";
   import gsap from "gsap";
-  import NeonCopyTerms from "@/components/neon_copy_terms.svelte";
+  import { onMount } from "svelte";
   import { theme } from "@/stores/theme";
-  import NeonLogo from "@/components/neon_logo.svelte";
   import Preload from "@/components/preload.svelte";
-  import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
+  import NeonCopyTerms from "@/components/neon_copy_terms.svelte";
   import { preloadFinished, pauseVideo } from "@/lib/stores/preload";
+  import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
+  import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
 
   let chapters = [
     {
@@ -68,45 +68,12 @@
 
   function skipToEnd() {
     timeline.pause();
-    const skipTimeline = gsap.timeline({
-      onComplete: () => {
-        timeline.seek(timeline.duration());
-      },
+
+    const skipTimeline = new SkipPreloadTimeline(false).getTimeline();
+
+    skipTimeline.eventCallback("onComplete", () => {
+      timeline.seek(timeline.duration());
     });
-    skipTimeline
-      .to("#container_preload__video", {
-        opacity: 0,
-        duration: 0.5,
-        onComplete: () => {
-          pauseVideo.set(true);
-        },
-      })
-      .to(
-        "#container_preload__container_copy_click",
-        {
-          opacity: 0,
-          duration: 0.4,
-        },
-        0.15,
-      )
-      .to(
-        "#container_preload__logo",
-        {
-          top: "100%",
-          width: "98%",
-          ease: "power2.out",
-          duration: 0.6,
-          onComplete: () => {
-            preloadFinished.set(true);
-            unlockScroll();
-            gsap.to(".column", {
-              opacity: 1,
-              stagger: 0.5,
-            });
-          },
-        },
-        "<",
-      );
   }
 </script>
 
@@ -123,7 +90,7 @@
           aria-hidden="true"
           on:mouseleave={handleLeave}
           on:mouseenter={handleIndex.bind(null, index)}
-          class="opacity-0 grid column cursor-pointer"
+          class="opacity-0 grid cursor-pointer"
         >
           <div
             class:first={index === 0}
