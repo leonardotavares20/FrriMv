@@ -8,48 +8,12 @@
   import { preloadFinished, pauseVideo } from "@/lib/stores/preload";
   import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
   import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
-
-  let chapters = [
-    {
-      title: "Becoming",
-      description: "The Ferrari World",
-      src: "/images_grid/grid_one.webp",
-      chapter: "CHapter One",
-    },
-    {
-      title: "Making",
-      description: "The Ferrari World",
-      src: "/images_grid/grid_two.webp",
-      chapter: "CHapter Two",
-    },
-    {
-      title: "The Stories Of",
-      description: "The Ferrari World",
-      src: "/images_grid/grid_three.webp",
-      chapter: "CHapter Three",
-    },
-    {
-      title: "Gallery",
-      description: "The Ferrari World",
-      src: "/images_grid/grid_four.webp",
-      chapter: "View",
-    },
-  ];
+  import { chapters } from "@/lib/assets/grid_home";
 
   let timeline: GSAPTimeline;
 
   function preventScroll(event: WheelEvent | TouchEvent) {
     event.preventDefault();
-  }
-
-  function lockScroll() {
-    document.addEventListener("wheel", preventScroll, { passive: false });
-    document.addEventListener("touchmove", preventScroll, { passive: false });
-  }
-
-  function unlockScroll() {
-    document.removeEventListener("wheel", preventScroll);
-    document.removeEventListener("touchmove", preventScroll);
   }
 
   let currentIndex: number | null = null;
