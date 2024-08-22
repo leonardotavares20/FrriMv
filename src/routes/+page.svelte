@@ -12,9 +12,6 @@
 
   let timeline: GSAPTimeline;
 
-  function preventScroll(event: WheelEvent | TouchEvent) {
-    event.preventDefault();
-  }
 
   let currentIndex: number | null = null;
 
