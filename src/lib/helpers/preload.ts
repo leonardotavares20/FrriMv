@@ -13,6 +13,7 @@ export function unlockScroll() {
   document.removeEventListener("wheel", preventScroll);
   document.removeEventListener("touchmove", preventScroll);
 }
+
 export function showColumns() {
   gsap.to("#column", {
     opacity: 1,
