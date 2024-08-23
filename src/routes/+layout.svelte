@@ -12,7 +12,7 @@
 
   $: $preloadFinished && firstLoad.set(true);
 
-  function skipToEnd() {
+  function skipPreloadToEnd() {
     timeline.pause();
 
     const skipTimeline = new SkipPreloadTimeline(false).getTimeline();
@@ -40,7 +40,7 @@
 </svelte:head>
 
 {#if !$preloadFinished && !$firstLoad}
-  <Preload on:skipToEnd={skipToEnd} />
+  <Preload on:skipToEnd={skipPreloadToEnd} />
 {/if}
 <div class="app">
   <Header />
