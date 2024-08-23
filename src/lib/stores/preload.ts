@@ -6,3 +6,5 @@ export const startVideo: Writable<boolean> = writable(false);
 export const pauseVideo: Writable<boolean> = writable(false);
 
 export const preloadFinished: Writable<boolean> = writable(false);
+
+export const firstLoad: Writable<boolean> = writable(false);
