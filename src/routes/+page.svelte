@@ -17,7 +17,7 @@
 
   onNavigate(async () => {
     return new Promise((res) =>
-      gsap.to(element, { opacity: 0, duration: 0.5, onComplete: res }),
+      gsap.to(element, { opacity: 0, duration: 0.2, onComplete: res }),
     );
   });
 
