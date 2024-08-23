@@ -28,7 +28,8 @@ export class SkipPreloadTimeline extends BaseTimeline {
         "#container_preload__logo",
         {
           top: "100%",
-          width: "98%",
+          width: "97.7%",
+          right: "1.5%",
           ease: "power2.out",
           duration: 0.6,
           onComplete: () => {

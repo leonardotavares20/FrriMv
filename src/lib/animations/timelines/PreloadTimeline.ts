@@ -1,4 +1,3 @@
-import gsap from "gsap";
 import { BaseTimeline } from "@/lib/animations/bases/BaseTimeline";
 import { lockScroll, unlockScroll, showColumns } from "@/lib/helpers/preload";
 import { startVideo, pauseVideo, preloadFinished } from "@/lib/stores/preload";
@@ -53,7 +52,8 @@ export class PreloadTimeline extends BaseTimeline {
         "#container_preload__logo",
         {
           top: "100%",
-          width: "98%",
+          width: "97.7%",
+          right: "1.5%",
           ease: "power2.out",
           duration: 0.8,
           onComplete: () => {
