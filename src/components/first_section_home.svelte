@@ -16,9 +16,10 @@
   <div></div>
   <div class="grid grid-cols-4 justify-center">
     {#each chapters as chapter, index}
-      <div
+      <a
         id="column"
         aria-hidden="true"
+        href={chapter.href}
         on:mouseleave={handleLeave}
         on:mouseenter={handleIndex.bind(null, index)}
         class="opacity-0 grid cursor-pointer"
@@ -32,8 +33,8 @@
             class="w-full relative overflow-hidden cursor-pointer object-cover h-full self-end"
           >
             <img
-              alt={chapter.description}
               src={chapter.src}
+              alt={chapter.description}
               class="w-full absolute left-0 right-0 bottom-0 top-0 h-full select-none object-cover"
             />
           </div>
@@ -48,7 +49,7 @@
             {chapter.title}
           </h2>
         </div>
-      </div>
+      </a>
     {/each}
   </div>
   <img
