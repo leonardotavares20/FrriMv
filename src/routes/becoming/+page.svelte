@@ -1,8 +1,9 @@
 <script lang="ts">
   import gsap from "gsap";
-  import { afterNavigate } from "$app/navigation";
   import { onMount } from "svelte";
   import { onNavigate } from "$app/navigation";
+  import Cover from "@/components/cover.svelte";
+  import { afterNavigate } from "$app/navigation";
 
   let becoming: HTMLElement;
 
@@ -16,13 +17,22 @@
   });
 
   onMount(() => {
-    gsap.to("#first", {
+    let timeline = gsap.timeline();
+
+    timeline.to("#first", {
       opacity: 1,
       ease: "power2.inOut",
-      delay: 0.5,
-      duration: 0.8,
+      duration: 1.2,
       translateX: "0%",
     });
+    timeline.to(
+      "#cover",
+      {
+        opacity: 0,
+        duration: 0.4,
+      },
+      0.5,
+    );
   });
 
   onNavigate(async () => {
@@ -33,16 +43,19 @@
 </script>
 
 <div bind:this={becoming}>
-  <div class="h-[100vh] grid-cols-2">
-    <div class="object-cover h-[100vh]">
+  <div class="h-[100vh] grid grid-cols-2">
+    <div
+      id="first"
+      class="object-cover opacity-0 -translate-x-full h-[100vh] relative"
+    >
+      <Cover />
       <img
-        id="first"
         src="/images_grid/grid_one.webp"
         alt=""
-        class="opacity-0 h-[100vh] -translate-x-full object-cover"
+        class="h-[100vh] w-full z-10 relative object-cover"
       />
     </div>
-    <div>
+    <div class="text-hells_red">
       <h2>
         <span> Adam Driver, Penélope Cruz </span>
         Becoming Ferrari
