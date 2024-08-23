@@ -1,1 +1,1 @@
-<p>oi</p>
+<p class="bg-slate-200">oi</p>
