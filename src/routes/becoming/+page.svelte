@@ -53,6 +53,10 @@
   });
 </script>
 
+<nav class="fixed font-futura_lt w-[100px] right-[300px] h-4 z-50 top-[25px] text-hells_red text-[14px] leading-4">
+  <a class="hover:underline" href="#adam">Adam Driver</a> <br>
+  <a class="hover:underline" href="#penelope">Penelope Cruz</a>
+</nav>
 <div bind:this={becoming}>
   <div class="h-[100vh] grid grid-cols-2">
     <div
