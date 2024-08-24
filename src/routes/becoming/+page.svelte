@@ -1,11 +1,9 @@
 <script lang="ts">
   import gsap from "gsap";
   import { onMount } from "svelte";
-  import { onNavigate } from "$app/navigation";
   import Cover from "@/components/cover.svelte";
   import { afterNavigate } from "$app/navigation";
-
-  let becoming: HTMLElement;
+  import NavigateTransition from "@/components/navigate_transition.svelte";
 
   afterNavigate(() => {
     return new Promise((res) => {
@@ -45,12 +43,6 @@
         0.5,
       );
   });
-
-  onNavigate(async () => {
-    return new Promise((res) =>
-      gsap.to(becoming, { opacity: 0, duration: 0.4, onComplete: res }),
-    );
-  });
 </script>
 
 <nav
@@ -59,31 +51,34 @@
   <a class="hover:underline" href="#adam">Adam Driver</a> <br />
   <a class="hover:underline" href="#penelope">Penelope Cruz</a>
 </nav>
-<div id="becoming" bind:this={becoming}>
-  <div class="h-[100vh] grid grid-cols-2">
-    <div
-      id="column_one"
-      class="object-cover opacity-0 -translate-x-full h-[100vh] relative"
-    >
-      <Cover />
-      <img
-        src="/images_grid/grid_one.webp"
-        alt=""
-        class="h-[100vh] w-full z-10 relative object-cover"
-      />
-    </div>
-    <div
-      id="column_two"
-      class="text-hells_red grid justify-center items-end translate-x-full opacity-0"
-    >
-      <h2
-        class="text-center font-futura_lt text-[140px] uppercase leading-[125px] pb-7"
+
+<NavigateTransition>
+  <div id="becoming">
+    <div class="h-[100vh] grid grid-cols-2">
+      <div
+        id="column_one"
+        class="object-cover opacity-0 -translate-x-full h-[100vh] relative"
       >
-        <span class=" text-xs font-futura_bt">
-          Adam Driver, Penélope Cruz
-        </span> <br />
-        Becoming <br /> Ferrari
-      </h2>
+        <Cover />
+        <img
+          src="/images_grid/grid_one.webp"
+          alt=""
+          class="h-[100vh] w-full z-10 relative object-cover"
+        />
+      </div>
+      <div
+        id="column_two"
+        class="text-hells_red grid justify-center items-end translate-x-full opacity-0"
+      >
+        <h2
+          class="text-center font-futura_lt text-[140px] uppercase leading-[125px] pb-7"
+        >
+          <span class=" text-xs font-futura_bt">
+            Adam Driver, Penélope Cruz
+          </span> <br />
+          Becoming <br /> Ferrari
+        </h2>
+      </div>
     </div>
   </div>
-</div>
+</NavigateTransition>
