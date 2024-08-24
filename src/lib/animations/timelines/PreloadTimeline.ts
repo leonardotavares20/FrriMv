@@ -1,54 +1,16 @@
 import { BaseTimeline } from "@/lib/animations/bases/BaseTimeline";
-import { lockScroll, unlockScroll, showColumns } from "@/lib/helpers/preload";
-import { startVideo, pauseVideo, preloadFinished } from "@/lib/stores/preload";
+import { preloadTimeline, completeActions } from "@/lib/helpers/preload";
 
 export class PreloadTimeline extends BaseTimeline {
-  constructor(status: boolean) {
+  private inHome: boolean;
+  constructor(status: boolean, inHome: boolean) {
     super(status);
+    this.inHome = inHome;
   }
 
   protected setupTimeline(): void {
-    this.timeline
-      .to(
-        "#container_preload__logo",
-        {
-          width: "90%",
-          ease: "power1.inOut",
-          duration: 7,
-          onStart: () => {
-            lockScroll();
-          },
-        },
-        1.1,
-      )
-      .to(
-        "#container_preload__video",
-        {
-          opacity: 1,
-          duration: 2,
-          onStart: () => {
-            startVideo.set(true);
-          },
-        },
-        1.1,
-      )
-      .to(
-        "#container_preload__video",
-        {
-          opacity: 0,
-          duration: 0.4,
-        },
-        7.6,
-      )
-      .to(
-        "#container_preload__container_copy_click",
-        {
-          opacity: 0,
-          duration: 0.4,
-        },
-        7.4,
-      )
-      .to(
+    if (this.inHome) {
+      this.timeline.add(preloadTimeline()).to(
         "#container_preload__logo",
         {
           top: "100%",
@@ -57,13 +19,43 @@ export class PreloadTimeline extends BaseTimeline {
           ease: "power2.out",
           duration: 0.8,
           onComplete: () => {
-            preloadFinished.set(true);
-            pauseVideo.set(true);
-            unlockScroll();
-            showColumns();
+            completeActions();
           },
         },
         7.6,
       );
+    } else {
+      this.timeline
+        .add(preloadTimeline())
+        .to(
+          "#container_preload__logo",
+          {
+            opacity: 0,
+            ease: "power2.out",
+            duration: 0.8,
+            onComplete: () => {
+              completeActions();
+            },
+          },
+          7.6,
+        )
+        .to(
+          "#preload",
+          {
+            opacity: 0,
+          },
+          7.8,
+        )
+        .fromTo(
+          "#becoming",
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+          },
+          8,
+        );
+    }
   }
 }
