@@ -19,7 +19,7 @@
 
   onNavigate(async (nav) => {
     const path = get(page).url.pathname;
-    
+
     if (nav.to?.url.pathname !== path) {
       return new Promise((res) =>
         gsap.to(home, { opacity: 0, duration: 0.4, onComplete: res }),
