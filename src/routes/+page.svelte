@@ -8,6 +8,8 @@
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
   import FirstSectionHome from "@/components/first_section_home.svelte";
   import SecondSectionHome from "@/components/second_section_home.svelte";
+  import { page } from "$app/stores";
+  import { get } from "svelte/store";
 
   $: $preloadFinished && firstLoad.set(true);
 
@@ -15,10 +17,14 @@
 
   //-- Hooks -- //
 
-  onNavigate(async () => {
-    return new Promise((res) =>
-      gsap.to(home, { opacity: 0, duration: 0.4, onComplete: res }),
-    );
+  onNavigate(async (nav) => {
+    const path = get(page).url.pathname;
+    
+    if (nav.to?.url.pathname !== path) {
+      return new Promise((res) =>
+        gsap.to(home, { opacity: 0, duration: 0.4, onComplete: res }),
+      );
+    }
   });
 
   onMount(() => {
