@@ -17,6 +17,7 @@
 </script>
 
 <div
+  id="preload"
   on:click={skipToEnd}
   aria-hidden="true"
   aria-label="Skip to end"
