@@ -26,19 +26,38 @@ export class SkipPreloadTimeline extends BaseTimeline {
         "<",
       );
     } else {
-      this.timeline.add(skipPreload()).to(
-        "#container_preload__logo",
-        {
-          delay: 0.2,
-          opacity: 0,
-          ease: "power2.out",
-          duration: 0.6,
-          onComplete: () => {
-            completeActions();
+      this.timeline
+        .add(skipPreload())
+        .to(
+          "#container_preload__logo",
+          {
+            delay: 0.2,
+            opacity: 0,
+            ease: "power2.out",
+            duration: 0.6,
+            onComplete: () => {
+              completeActions();
+            },
           },
-        },
-        "<",
-      );
+          "<",
+        )
+        .to(
+          "#preload",
+          {
+            opacity: 0,
+          },
+          "<",
+        )
+        .fromTo(
+          "#page_wrapper",
+          {
+            opacity: 0,
+          },
+          {
+            opacity: 1,
+          },
+          0.5,
+        );
     }
   }
 }

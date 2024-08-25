@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NeonLogo from "@/components/neon_logo.svelte";
+  import NeonLogo from "@/components/neon/neon_logo.svelte";
 </script>
 
 <div
