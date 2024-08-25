@@ -1,9 +1,9 @@
 <script lang="ts">
   import "../app.css";
   import { onMount, onDestroy } from "svelte";
-  import Header from "@/components/header.svelte";
+  import Header from "@/components/header/header.svelte";
   import { afterNavigate } from "$app/navigation";
-  import Preload from "@/components/preload.svelte";
+  import Preload from "@/components/preload/preload.svelte";
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
   import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
   import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
