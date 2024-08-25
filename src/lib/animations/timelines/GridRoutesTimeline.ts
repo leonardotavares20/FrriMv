@@ -13,6 +13,9 @@ export class GridRoutesTimeline extends BaseTimeline {
         duration: 1.2,
         translateX: "0%",
       })
+      .to("#navigation", {
+        opacity: 1,
+      })
       .to(
         "#column_two",
         {

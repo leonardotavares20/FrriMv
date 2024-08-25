@@ -39,14 +39,14 @@ export class SkipPreloadTimeline extends BaseTimeline {
               completeActions();
             },
           },
-          "<",
+          0.5,
         )
         .to(
           "#preload",
           {
             opacity: 0,
           },
-          "<",
+          1,
         )
         .fromTo(
           "#page_wrapper",
@@ -56,7 +56,7 @@ export class SkipPreloadTimeline extends BaseTimeline {
           {
             opacity: 1,
           },
-          0.5,
+          1.3,
         );
     }
   }

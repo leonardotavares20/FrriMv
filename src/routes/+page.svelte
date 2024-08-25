@@ -1,7 +1,7 @@
 <script lang="ts">
   import "../app.css";
   import { onMount } from "svelte";
-  import { showColumns } from "@/lib/helpers/preload";
+  import { showHome } from "@/lib/helpers/preload";
   import GridHome from "@/components/grid_home/grid_home.svelte";
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
   import FirstSectionHome from "@/components/home_sections/first_section_home.svelte";
@@ -13,7 +13,7 @@
   //-- Hooks -- //
 
   onMount(() => {
-    $firstLoad && showColumns();
+    $firstLoad && showHome();
   });
 </script>
 
