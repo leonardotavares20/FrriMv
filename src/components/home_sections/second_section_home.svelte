@@ -1,5 +1,5 @@
 <script lang="ts">
-  import NeonCopyTerms from "./neon_copy_terms.svelte";
+  import NeonCopyTerms from "../neon/neon_copy_terms.svelte";
 </script>
 
 <div class="h-[100vh] w-[100vw] relative p-6 grid items-end text-hells_red">
