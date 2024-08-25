@@ -1,6 +1,6 @@
 <script lang="ts">
   import { createEventDispatcher, onMount } from "svelte";
-  import NeonCopyTerms from "./neon_copy_terms.svelte";
+  import NeonCopyTerms from "../neon/neon_copy_terms.svelte";
   import { startVideo, pauseVideo } from "@/lib/stores/preload";
 
   const dispatch = createEventDispatcher();
