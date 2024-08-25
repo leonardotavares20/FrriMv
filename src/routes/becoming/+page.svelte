@@ -21,12 +21,11 @@
   });
 </script>
 
-<PageNavigation>
-  <a class="hover:underline" href="#adam">Adam Driver</a> <br />
-  <a class="hover:underline" href="#penelope">Penelope Cruz</a>
-</PageNavigation>
-
 <NavigateTransition>
+  <PageNavigation>
+    <a class="hover:underline" href="#adam">Adam Driver</a> <br />
+    <a class="hover:underline" href="#penelope">Penelope Cruz</a>
+  </PageNavigation>
   <PageWrapper>
     <Grid.GridColumns>
       <Grid.ColumnOne>
