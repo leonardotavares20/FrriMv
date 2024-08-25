@@ -10,23 +10,39 @@ export class PreloadTimeline extends BaseTimeline {
 
   protected setupTimeline(): void {
     if (this.inHome) {
-      this.timeline.add(preloadTimeline()).to(
-        "#container_preload__logo",
-        {
-          top: "100%",
-          width: "97.7%",
-          right: "1.5%",
-          ease: "power2.out",
-          duration: 0.8,
-          onComplete: () => {
-            completeActions();
+      this.timeline
+        .add(preloadTimeline())
+        .to(
+          "#logo_ferrari",
+          {
+            opacity: 1,
           },
-        },
-        7.6,
-      );
+          7.6,
+        )
+        .to(
+          "#container_preload__logo",
+          {
+            top: "100%",
+            width: "97.7%",
+            right: "1.5%",
+            ease: "power2.out",
+            duration: 0.8,
+            onComplete: () => {
+              completeActions();
+            },
+          },
+          7.6,
+        );
     } else {
       this.timeline
         .add(preloadTimeline())
+        .to(
+          "#logo_ferrari",
+          {
+            opacity: 1,
+          },
+          7.6,
+        )
         .to(
           "#container_preload__logo",
           {
@@ -37,14 +53,14 @@ export class PreloadTimeline extends BaseTimeline {
               completeActions();
             },
           },
-          7.6,
+          8.2,
         )
         .to(
           "#preload",
           {
             opacity: 0,
           },
-          7.8,
+          8.5,
         )
         .fromTo(
           "#page_wrapper",
@@ -54,7 +70,7 @@ export class PreloadTimeline extends BaseTimeline {
           {
             opacity: 1,
           },
-          8,
+          8.8,
         );
     }
   }
