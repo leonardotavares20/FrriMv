@@ -47,7 +47,7 @@ export class PreloadTimeline extends BaseTimeline {
           7.8,
         )
         .fromTo(
-          "#becoming",
+          "#page_wrapper",
           {
             opacity: 0,
           },
