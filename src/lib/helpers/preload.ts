@@ -19,10 +19,13 @@ export function unlockScroll() {
 
 // -- Animations -- //
 
-export function showColumns() {
+export function showHome() {
   gsap.to("#column", {
     opacity: 1,
     stagger: 0.5,
+  });
+  gsap.to("#logo_ferrari", {
+    opacity: 1,
   });
 }
 
@@ -98,5 +101,5 @@ export function completeActions() {
   preloadFinished.set(true);
   pauseVideo.set(true);
   unlockScroll();
-  showColumns();
+  showHome();
 }
