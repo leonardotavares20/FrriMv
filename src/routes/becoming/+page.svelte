@@ -30,9 +30,8 @@
     <Grid.GridColumns>
       <Grid.ColumnOne>
         <Cover />
-        <img
+        <Grid.GridImage
           src="/images_grid/grid_one.webp"
-          class="h-[100vh] w-full z-10 relative object-cover"
           alt="Adam driver walking with sunglasses and a light beige coat, and in the background a ferrari used in the recordings"
         />
       </Grid.ColumnOne>
