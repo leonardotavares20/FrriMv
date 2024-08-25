@@ -53,9 +53,10 @@
     {/each}
   </div>
   <img
-    class="w-[98vw] h-full pt-6 bottom-0 self-end"
+    id="logo_ferrari"
+    class="w-[98vw] h-full pt-6 bottom-0 self-end opacity-0"
     src="/logo/logo.svg"
-    alt=""
+    alt="Ferrari"
   />
 </div>
 
