@@ -12,7 +12,7 @@
   }
 </script>
 
-<div class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center">
+<section class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center">
   <div></div>
   <div class="grid grid-cols-4 justify-center">
     {#each chapters as chapter, index}
@@ -58,7 +58,7 @@
     src="/logo/logo.svg"
     alt="Ferrari"
   />
-</div>
+</section>
 
 <style>
   .active {

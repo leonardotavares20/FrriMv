@@ -23,19 +23,19 @@
 <NavigateTransition>
   <PageWrapper>
     <Grid.GridColumns>
-      <Grid.ColumnOne>
+      <Grid.HeroColumnOne>
         <Cover />
         <Grid.GridImage
           src="/images_grid/grid_two.webp"
           alt="Behind the scenes of the filming of the movie Ferrari"
         />
-      </Grid.ColumnOne>
-      <Grid.ColumnTwo>
+      </Grid.HeroColumnOne>
+      <Grid.HeroColumnTwo>
         <Title.TitleContainer>
           <Title.TitleSm>Chapter Two</Title.TitleSm>
           <Title.TitleLg>Making Ferrari</Title.TitleLg>
         </Title.TitleContainer>
-      </Grid.ColumnTwo>
+      </Grid.HeroColumnTwo>
     </Grid.GridColumns>
   </PageWrapper>
 </NavigateTransition>
