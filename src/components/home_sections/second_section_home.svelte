@@ -2,7 +2,7 @@
   import NeonCopyTerms from "../neon/neon_copy_terms.svelte";
 </script>
 
-<div class="h-[100vh] w-[100vw] relative p-6 grid items-end text-hells_red">
+<section class="h-[100vh] w-[100vw] relative p-6 grid items-end text-hells_red">
   <div class="text-center grid justify-center font-century">
     <blockquote class="grid items-center gap-10 justify-center max-w-[480px]">
       <p class="w-[480px] leading-8 text-[30px] mx-auto teste">
@@ -24,4 +24,4 @@
       <a href="/">X</a>
     </div>
   </div>
-</div>
+</section>
