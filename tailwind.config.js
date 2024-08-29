@@ -6,6 +6,7 @@ export default {
       colors: {
         hells_red: "#CE0000",
         areolin: "#FDF003",
+        dark_jungle_green: "#202324",
       },
       fontFamily: {
         futura_bt: ["Futura BT Condensed", "sans-serif"],

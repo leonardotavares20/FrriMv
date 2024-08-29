@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { afterNavigate } from "$app/navigation";
   import { showColumnOneGrid } from "@/lib/helpers/grid";
-  import PageWrapper from "@/components/page_wrapper/page_wrapper.svelte";
+  import PageWrapper from "@/components/wrappers/page_wrapper.svelte";
   import { GridRoutesTimeline } from "@/lib/animations/timelines/GridRoutesTimeline";
   import NavigateTransition from "@/components/transitions/navigate_transition.svelte";
 

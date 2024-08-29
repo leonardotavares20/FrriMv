@@ -6,7 +6,8 @@
 
   import Adam from "./adam.svelte";
   import Hero from "@/routes/becoming/hero.svelte";
-  import PageWrapper from "@/components/page_wrapper/page_wrapper.svelte";
+  import PageWrapper from "@/components/wrappers/page_wrapper.svelte";
+  import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
   import PageNavigation from "@/components/page_navigation/page_navigation.svelte";
   import NavigateTransition from "@/components/transitions/navigate_transition.svelte";
 
@@ -27,6 +28,7 @@
     <a class="hover:underline" href="#penelope">Penelope Cruz</a>
   </PageNavigation>
   <PageWrapper>
+    <ContentWrapper />
     <Hero />
     <Adam />
   </PageWrapper>

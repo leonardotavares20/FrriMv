@@ -12,7 +12,7 @@ export class SkipPreloadTimeline extends BaseTimeline {
   protected setupTimeline(): void {
     if (this.inHome) {
       this.timeline.add(skipPreload()).to(
-        "#container_preload__logo",
+        "#ferrari_logo_preload",
         {
           top: "100%",
           width: "97.7%",
@@ -29,7 +29,7 @@ export class SkipPreloadTimeline extends BaseTimeline {
       this.timeline
         .add(skipPreload())
         .to(
-          "#container_preload__logo",
+          "#ferrari_logo_preload",
           {
             delay: 0.2,
             opacity: 0,

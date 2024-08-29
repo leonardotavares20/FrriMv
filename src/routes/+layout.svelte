@@ -1,14 +1,14 @@
 <script lang="ts">
   import "../app.css";
-  import { onMount, onDestroy } from "svelte";
+  import { onMount } from "svelte";
+  import { get } from "svelte/store";
+  import { page } from "$app/stores";
   import Header from "@/components/header/header.svelte";
   import { afterNavigate } from "$app/navigation";
   import Preload from "@/components/preload/preload.svelte";
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
   import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
   import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
-  import { get } from "svelte/store";
-  import { page } from "$app/stores";
 
   let timeline: GSAPTimeline;
 

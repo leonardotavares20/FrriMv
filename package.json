@@ -17,6 +17,7 @@
     "@sveltejs/adapter-auto": "^3.2.2",
     "@sveltejs/kit": "^2.5.20",
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
+    "@types/lodash.throttle": "^4.1.9",
     "@types/node": "^20.14.14",
     "autoprefixer": "^10.4.20",
     "eslint": "^8.57.0",
@@ -36,6 +37,7 @@
   },
   "type": "module",
   "dependencies": {
-    "gsap": "^3.12.5"
+    "gsap": "^3.12.5",
+    "lodash.throttle": "^4.1.1"
   }
 }
