@@ -21,18 +21,18 @@
   on:click={skipToEnd}
   aria-hidden="true"
   aria-label="Skip to end"
-  class="bg-black h-dvh w-[100vw] fixed z-[100] flex flex-col justify-center items-center"
+  class="bg-black h-dvh w-svw fixed z-[100] flex flex-col justify-center items-center"
 >
   <div class="absolute flex justify-center z-10 h-[100vh] w-full">
     <img
-      alt=""
+      alt="Ferrari"
       src="/logo/logo.svg"
-      id="container_preload__logo"
+      id="ferrari_logo_preload"
       class=" absolute select-none w-[60%] top-[60%] -translate-y-full max-xl:top-[55%] pb-6"
     />
   </div>
   <div
-    id="container_preload__container_copy_click"
+    id="copy_click"
     class="absolute flex flex-col cursor-pointer items-center uppercase font-futura_bt py-7 justify-between z-20 text-hells_red h-[100vh] w-full"
   >
     <p
@@ -42,13 +42,13 @@
     </p>
     <NeonCopyTerms />
   </div>
-  <div class="flex justify-center">
+  <div class="grid w-svw self-center justify-center items-center">
     <video
       bind:this={preload_video}
       muted
-      id="container_preload__video"
+      id="preload_video"
       src="/videos/preload/preload_video.mp4"
-      class="pointer-events-none opacity-0 w-[88%] select-none"
+      class="pointer-events-none opacity-0 w-[88vw] select-none self-center"
     >
       <track kind="captions" />
     </video>
