@@ -20,7 +20,7 @@ export class PreloadTimeline extends BaseTimeline {
           7.6,
         )
         .to(
-          "#container_preload__logo",
+          "#ferrari_logo_preload",
           {
             top: "100%",
             width: "97.7%",
@@ -44,7 +44,7 @@ export class PreloadTimeline extends BaseTimeline {
           7.6,
         )
         .to(
-          "#container_preload__logo",
+          "#ferrari_logo_preload",
           {
             opacity: 0,
             ease: "power2.out",
