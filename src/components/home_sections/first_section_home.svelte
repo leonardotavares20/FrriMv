@@ -1,5 +1,5 @@
 <script lang="ts">
-  import { chapters } from "@/lib/assets/grid_home";
+  import { chapters } from "@/lib/assets/home/grid_home";
 
   let currentIndex: number | null = null;
 
@@ -54,7 +54,7 @@
   </div>
   <img
     id="logo_ferrari"
-    class="w-[98vw] h-full pt-6 bottom-0 self-end opacity-0"
+    class="w-svw h-full pt-6 bottom-0 self-end opacity-0"
     src="/logo/logo.svg"
     alt="Ferrari"
   />
