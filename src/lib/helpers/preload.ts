@@ -35,7 +35,7 @@ export function preloadTimeline() {
   return gsap
     .timeline()
     .to(
-      "#container_preload__logo",
+      "#ferrari_logo_preload",
       {
         width: "90%",
         ease: "power1.inOut",
@@ -47,7 +47,7 @@ export function preloadTimeline() {
       1.1,
     )
     .to(
-      "#container_preload__video",
+      "#preload_video",
       {
         opacity: 1,
         duration: 2,
@@ -58,7 +58,7 @@ export function preloadTimeline() {
       1.1,
     )
     .to(
-      "#container_preload__video",
+      "#preload_video",
       {
         opacity: 0,
         duration: 0.4,
@@ -66,7 +66,7 @@ export function preloadTimeline() {
       7.6,
     )
     .to(
-      "#container_preload__container_copy_click",
+      "#copy_click",
       {
         opacity: 0,
         duration: 0.4,
@@ -78,7 +78,7 @@ export function preloadTimeline() {
 export function skipPreload(): GSAPTimeline {
   return gsap
     .timeline()
-    .to("#container_preload__video", {
+    .to("#preload_video", {
       opacity: 0,
       duration: 0.5,
       onComplete: () => {
@@ -86,7 +86,7 @@ export function skipPreload(): GSAPTimeline {
       },
     })
     .to(
-      "#container_preload__container_copy_click",
+      "#copy_click",
       {
         opacity: 0,
         duration: 0.4,
