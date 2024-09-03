@@ -51,7 +51,7 @@
   {#if !$preloadFinished && !$firstLoad}
     <Preload on:skipToEnd={skipPreloadToEnd} />
   {/if}
-  <main>
+  <main class="overflow-hidden">
     <slot></slot>
   </main>
   <footer></footer>
