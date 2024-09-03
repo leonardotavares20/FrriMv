@@ -15,9 +15,9 @@
 <div
   on:click={showVideoWrapper}
   aria-hidden="true"
-  class="w-[100vw] relative grid justify-center"
+  class="w-[100vw] h-[100vh] relative grid justify-center items-center"
 >
-  <video loop muted class="w-[95vw] cursor-pointer" src={srcVideo}>
+  <video autoplay loop muted class="w-[95vw] cursor-pointer" src={srcVideo}>
     <track kind="captions" />
   </video>
   <PlayIcon />

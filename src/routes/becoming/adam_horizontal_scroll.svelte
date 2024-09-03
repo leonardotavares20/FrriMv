@@ -2,6 +2,7 @@
   import { gsap } from "gsap";
   import { beforeUpdate, afterUpdate, onMount } from "svelte";
   import ScrollTrigger from "gsap/dist/ScrollTrigger";
+  import { beforeNavigate } from "$app/navigation";
 
   // const teste = [
   //   { id: 1, src: "stories/carrousel/first.webp" },
@@ -39,19 +40,18 @@
       xPercent: -maxScroll,
       ease: "none",
       scrollTrigger: {
-        trigger: "#scroll",
+        trigger: "#teste",
         scrub: 2,
         pin: true,
-        start: "center center",
+        start: "start end",
         end: () => "+=100%",
       },
     });
   }
 
-  // afterUpdate(() => {
-  //   setupScrollAnimation();
-  //   calculateTotalWidth();
-  // });
+  beforeNavigate(() => {
+    ScrollTrigger.killAll(true);
+  });
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
@@ -64,11 +64,11 @@
   id="wrapper_scroll"
   class="h-[200vh] flex justify-center w-[100vw] teste overflow-hidden"
 >
-  <div class="sticky h-svh w-[400vw] top-0">
+  <div id="teste" class="sticky h-svh w-[400vw] top-0">
     <div
       id="scroll"
       style="width: ${totalWidth}px;"
-      class="h-[100vh] flex gap-4 absolute pl-5 pr-[60px]"
+      class="h-[100vh] flex gap-4 absolute pl-5 pr-[60px] left-0"
     >
       {#each teste as item}
         <div
