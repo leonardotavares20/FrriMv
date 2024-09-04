@@ -14,7 +14,7 @@
   </Grid.HeroColumnOne>
   <Grid.HeroColumnTwo>
     <Title.TitleContainer>
-      <Title.TitleSm>Adam Driver, Penélope Cruz</Title.TitleSm>
+      <Title.TitleSm sm>Adam Driver, Penélope Cruz</Title.TitleSm>
       <Title.TitleLg>
         Becoming <br /> Ferrari
       </Title.TitleLg>
