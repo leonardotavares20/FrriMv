@@ -22,7 +22,7 @@
   });
 </script>
 
-<div id="section_fixed" class="h-[400vh] relative">
+<div id="section_fixed" class="h-[250vh] relative">
   <div id="section_target" class="sticky w-full top-0 block h-[full]">
     <slot />
   </div>

@@ -4,9 +4,11 @@
   import { showColumnOneGrid } from "@/lib/helpers/grid";
   import { GridRoutesTimeline } from "@/lib/animations/timelines/GridRoutesTimeline";
 
+  import gsap from "gsap";
   import Adam from "./adam.svelte";
   import Penelope from "./penelope.svelte";
   import Hero from "@/routes/becoming/hero.svelte";
+  import ScrollTrigger from "gsap/dist/ScrollTrigger";
   import PageWrapper from "@/components/wrappers/page_wrapper.svelte";
   import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
   import PageNavigation from "@/components/page_navigation/page_navigation.svelte";
@@ -19,6 +21,22 @@
   });
 
   onMount(() => {
+    gsap.registerPlugin(ScrollTrigger);
+
+    ScrollTrigger.create({
+      trigger: "#app",
+      start: "top top",
+      end: "bottom bottom",
+      onUpdate: (self) => {
+        // gsap.to(progressBar, {
+        //   width: self.progress * 100 + "%",
+        // });
+        if (self.progress == 1) {
+          console.log("self.progress", self.progress);
+        }
+      },
+    });
+
     new GridRoutesTimeline(false).getTimeline().play();
   });
 </script>

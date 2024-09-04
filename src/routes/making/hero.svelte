@@ -15,7 +15,7 @@
   <Grid.HeroColumnTwo>
     <Title.TitleContainer>
       <Title.TitleSm>Chapter Two</Title.TitleSm>
-      <Title.TitleLg>Making Ferrari</Title.TitleLg>
+      <Title.TitleLg>Making <br> Ferrari</Title.TitleLg>
     </Title.TitleContainer>
   </Grid.HeroColumnTwo>
 </Grid.GridColumns>

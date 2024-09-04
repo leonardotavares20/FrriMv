@@ -25,6 +25,8 @@ function hideMessageScroll() {
   });
 }
 
+// == Becoming == //
+
 export function setupScrollAdam(maxScroll: number) {
   gsap.to("#scroll_adam", {
     xPercent: -maxScroll,
@@ -52,6 +54,50 @@ export function setupScrollPenelope(maxScroll: number) {
     ease: "none",
     scrollTrigger: {
       trigger: "#container_scroll_penelope",
+      scrub: 4,
+      pin: true,
+      start: "start end",
+      end: () => "+=100%",
+      onUpdate: (self) => {
+        if (self.progress >= 0.2 && self.progress <= 0.8) {
+          showMessageScroll();
+        } else {
+          hideMessageScroll();
+        }
+      },
+    },
+  });
+}
+
+// == Making == //
+
+export function setupScrollChapterOne(maxScroll: number) {
+  gsap.to("#scroll_chapter_one", {
+    xPercent: -maxScroll,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#container_scroll_chapter_one",
+      scrub: 4,
+      pin: true,
+      start: "start end",
+      end: () => "+=100%",
+      onUpdate: (self) => {
+        if (self.progress >= 0.2 && self.progress <= 0.8) {
+          showMessageScroll();
+        } else {
+          hideMessageScroll();
+        }
+      },
+    },
+  });
+}
+
+export function setupScrollBuildingPerfection(maxScroll: number) {
+  gsap.to("#scroll_building_perfection", {
+    xPercent: -maxScroll,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#container_scroll_building_perfection",
       scrub: 4,
       pin: true,
       start: "start end",
