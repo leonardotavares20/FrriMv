@@ -27,6 +27,8 @@ function hideMessageScroll() {
 
 // == Becoming == //
 
+// == Adam == //
+
 export function setupScrollAdam(maxScroll: number) {
   gsap.to("#scroll_adam", {
     xPercent: -maxScroll,
@@ -47,6 +49,8 @@ export function setupScrollAdam(maxScroll: number) {
     },
   });
 }
+
+// == Penelope == //
 
 export function setupScrollPenelope(maxScroll: number) {
   gsap.to("#scroll_penelope", {
@@ -71,6 +75,8 @@ export function setupScrollPenelope(maxScroll: number) {
 
 // == Making == //
 
+// == Chapter One == //
+
 export function setupScrollChapterOne(maxScroll: number) {
   gsap.to("#scroll_chapter_one", {
     xPercent: -maxScroll,
@@ -92,12 +98,37 @@ export function setupScrollChapterOne(maxScroll: number) {
   });
 }
 
+// == Building Perfection == //
+
 export function setupScrollBuildingPerfection(maxScroll: number) {
   gsap.to("#scroll_building_perfection", {
     xPercent: -maxScroll,
     ease: "none",
     scrollTrigger: {
       trigger: "#container_scroll_building_perfection",
+      scrub: 4,
+      pin: true,
+      start: "start end",
+      end: () => "+=100%",
+      onUpdate: (self) => {
+        if (self.progress >= 0.2 && self.progress <= 0.8) {
+          showMessageScroll();
+        } else {
+          hideMessageScroll();
+        }
+      },
+    },
+  });
+}
+
+// == Stories == //
+
+export function setupScrollMilleMiglia(maxScroll: number) {
+  gsap.to("#scroll_mille_miglia", {
+    xPercent: -maxScroll,
+    ease: "none",
+    scrollTrigger: {
+      trigger: "#container_scroll_mille_miglia",
       scrub: 4,
       pin: true,
       start: "start end",
