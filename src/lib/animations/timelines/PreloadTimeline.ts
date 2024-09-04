@@ -10,6 +10,32 @@ export class PreloadTimeline extends BaseTimeline {
 
   protected setupTimeline(): void {
     if (this.inHome) {
+      const mql = window.matchMedia("(max-width: 1024px)");
+      if (mql.matches) {
+        this.timeline
+          .add(preloadTimeline())
+          .to(
+            "#ferrari_logo_preload",
+            {
+              delay: 0.2,
+              opacity: 0,
+              ease: "power2.out",
+              duration: 0.6,
+              onComplete: () => {
+                completeActions();
+              },
+            },
+            0.5,
+          )
+          .to(
+            "#preload",
+            {
+              opacity: 0,
+            },
+            1,
+          );
+        return;
+      }
       this.timeline
         .add(preloadTimeline())
         .to(
@@ -23,8 +49,8 @@ export class PreloadTimeline extends BaseTimeline {
           "#ferrari_logo_preload",
           {
             top: "100%",
-            width: "97.7%",
-            right: "1.5%",
+            width: "100%",
+            right: "0.250%",
             ease: "power2.out",
             duration: 0.8,
             onComplete: () => {
