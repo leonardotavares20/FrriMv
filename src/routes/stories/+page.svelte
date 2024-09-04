@@ -6,6 +6,8 @@
   import PageWrapper from "@/components/wrappers/page_wrapper.svelte";
   import { GridRoutesTimeline } from "@/lib/animations/timelines/GridRoutesTimeline";
   import NavigateTransition from "@/components/transitions/navigate_transition.svelte";
+  import MilleMiglia from "./mille_miglia.svelte";
+  import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
 
   afterNavigate(() => {
     return new Promise(() => {
@@ -20,6 +22,8 @@
 
 <NavigateTransition>
   <PageWrapper>
+    <ContentWrapper />
     <Hero />
+    <MilleMiglia />
   </PageWrapper>
 </NavigateTransition>
