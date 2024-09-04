@@ -46,7 +46,7 @@
   <title>Ferrari - Movie</title>
 </svelte:head>
 
-<div class="app">
+<div id="app" class="app">
   <Header />
   {#if !$preloadFinished && !$firstLoad}
     <Preload on:skipToEnd={skipPreloadToEnd} />
