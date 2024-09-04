@@ -5,6 +5,7 @@
   import { GridRoutesTimeline } from "@/lib/animations/timelines/GridRoutesTimeline";
 
   import Adam from "./adam.svelte";
+  import Penelope from "./penelope.svelte";
   import Hero from "@/routes/becoming/hero.svelte";
   import PageWrapper from "@/components/wrappers/page_wrapper.svelte";
   import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
@@ -31,5 +32,6 @@
     <ContentWrapper />
     <Hero />
     <Adam />
+    <Penelope />
   </PageWrapper>
 </NavigateTransition>

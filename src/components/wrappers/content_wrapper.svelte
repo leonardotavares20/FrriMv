@@ -38,7 +38,7 @@
   </div>
   <div
     id="content_footer_wrapper"
-    class="grid items-end justify-center h-[500px] w-full relative z-50"
+    class="grid items-end justify-center h-[100px] w-full relative z-50"
   >
     <!-- {#if $typeContentWrapper === "video"} -->
     <VideoProgressBar />

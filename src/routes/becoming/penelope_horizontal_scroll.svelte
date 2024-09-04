@@ -5,7 +5,7 @@
   import ScrollTrigger from "gsap/dist/ScrollTrigger";
   import {
     calculateTotalWidthImages,
-    setupScrollAdam,
+    setupScrollPenelope,
   } from "@/lib/helpers/scroll";
   import HorizontalScrollCard from "@/components/horizontal_scroll/horizontal_scroll_card.svelte";
   import HorizontalScrollMessage from "@/components/horizontal_scroll/horizontal_scroll_message.svelte";
@@ -20,14 +20,15 @@
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
-    const images =
-      document.querySelectorAll<HTMLImageElement>("#scroll_adam img");
+    const images = document.querySelectorAll<HTMLImageElement>(
+      "#scroll_penelope img",
+    );
 
     totalWidth = calculateTotalWidthImages(images);
 
     const maxScroll = ((totalWidth - window.innerWidth) / totalWidth) * 100;
 
-    setupScrollAdam(maxScroll);
+    setupScrollPenelope(maxScroll);
   });
 </script>
 
@@ -35,10 +36,10 @@
   id="wrapper_scroll"
   class="h-[200vh] flex justify-center w-[100vw] teste overflow-hidden"
 >
-  <div id="container_scroll_adam" class="sticky h-svh w-[400vw] top-0">
+  <div id="container_scroll_penelope" class="sticky h-svh w-[400vw] top-0">
     <HorizontalScrollMessage />
     <div
-      id="scroll_adam"
+      id="scroll_penelope"
       style="width: ${totalWidth}px;"
       class="h-[100vh] flex gap-4 absolute pl-5 pr-[60px] left-0"
     >

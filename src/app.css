@@ -53,20 +53,8 @@
     @apply h-dvh bg-black;
   }
 
-  h2::selection {
+  *::selection {
     @apply bg-[#FDF003] text-black;
-  }
-
-  p::selection {
-    @apply bg-[#FDF003] text-black;
-  }
-
-  span::selection {
-    @apply bg-[#FDF003] text-black;
-  }
-
-  img {
-    @apply select-none;
   }
 }
 
@@ -109,7 +97,6 @@ input[type="range"] {
   background: #fff0;
   overflow: hidden;
 }
-
 
 input[type="range"]:disabled {
   filter: grayscale(1);
