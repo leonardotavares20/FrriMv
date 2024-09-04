@@ -28,7 +28,7 @@
       alt="Ferrari"
       src="/logo/logo.svg"
       id="ferrari_logo_preload"
-      class=" absolute select-none w-[60%] top-[60%] -translate-y-full max-xl:top-[55%] pb-6"
+      class=" absolute select-none w-[60%] top-[60%] -translate-y-full max-xl:top-[55%] pb-6 px-6"
     />
   </div>
   <div
