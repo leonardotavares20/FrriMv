@@ -9,6 +9,7 @@
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
   import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
   import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
+  import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
 
   let timeline: GSAPTimeline;
 
@@ -48,6 +49,7 @@
 
 <div id="app" class="app">
   <Header />
+  <ContentWrapper />
   {#if !$preloadFinished && !$firstLoad}
     <Preload on:skipToEnd={skipPreloadToEnd} />
   {/if}
