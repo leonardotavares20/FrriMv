@@ -1,5 +1,6 @@
 <script lang="ts">
   import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
+  import { indexImageSrc } from "@/lib/stores/carrousel_gallery";
 
   let currentIndex: number | null = null;
 
@@ -18,25 +19,29 @@
   >
     {#each carrousel_images as image, index}
       <img
-        on:mouseleave={handleLeave}
-        on:mouseenter={handleIndex.bind(null, index)}
         loading="lazy"
-        class:active={index === currentIndex}
-        class:off={currentIndex !== null && currentIndex !== index}
+        on:mouseenter={handleIndex.bind(null, index)}
+        on:mouseleave={handleLeave}
+        class:inactive={currentIndex !== index && $indexImageSrc !== index}
+        class:activeImage={$indexImageSrc === index}
         src={image.src}
         alt=""
-        class="cursor-pointer"
+        class="cursor-pointer transition-all"
       />
     {/each}
   </div>
 </div>
 
 <style>
-  .active {
-    @apply transition-all;
+  .activeImage {
+    @apply brightness-100 transition-all;
   }
 
-  .off {
-    @apply opacity-100 transition-all brightness-50;
+  .inactive {
+    @apply brightness-[30%] transition-all;
+  }
+
+  img:hover:not(.activeImage) {
+    @apply brightness-100 transition-all;
   }
 </style>

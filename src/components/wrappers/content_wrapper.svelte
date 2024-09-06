@@ -4,7 +4,6 @@
   import VideoPlayer from "../video/video_player.svelte";
   import { typeContentWrapper } from "@/lib/stores/wrapper";
   import VideoProgressBar from "../video/video_progress_bar.svelte";
-  import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
   import CarrouselGallery from "../carrousel/carrousel_gallery.svelte";
 
   function handleKeyDownEscape(event: KeyboardEvent) {
