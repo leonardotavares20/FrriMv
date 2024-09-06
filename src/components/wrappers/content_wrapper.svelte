@@ -5,6 +5,7 @@
   import { typeContentWrapper } from "@/lib/stores/wrapper";
   import VideoProgressBar from "../video/video_progress_bar.svelte";
   import CarrouselGallery from "../carrousel/carrousel_gallery.svelte";
+  import CarrouselImage from "../carrousel/carrousel_image.svelte";
 
   function handleKeyDownEscape(event: KeyboardEvent) {
     event.code === "Escape" && hideWrapper();
@@ -38,17 +39,8 @@
       class="flex h-svh w-svw justify-center absolute overflow-hidden opacity-0"
     >
       {#if $typeContentWrapper === "gallery"}
-        <div class="h-[80vh] w-full relative flex justify-center items-end">
-          <div class="h-[90%]">
-            <img
-              class="h-full object-cover"
-              src="/images_grid/grid_one.webp"
-              alt=""
-            />
-          </div>
-        </div>
-      {/if}
-      {#if $typeContentWrapper === "video"}
+        <CarrouselImage />
+      {:else}
         <VideoPlayer />
       {/if}
     </div>
