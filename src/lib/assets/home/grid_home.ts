@@ -25,6 +25,6 @@ export const chapters = [
     description: "Gallery",
     src: "/images_grid/grid_four.webp",
     chapter: "View",
-    href: "/becoming",
+    href: "/",
   },
 ];
