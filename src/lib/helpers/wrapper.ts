@@ -27,6 +27,7 @@ export function showWrapper() {
 }
 
 export function hideWrapper() {
+  hideWrapperMainContent();
   timeline.reverse();
 }
 
@@ -36,7 +37,6 @@ function actionsWrapperHide() {
   unlockScroll();
   typeContentWrapper.set("gallery");
   playVideo.set(false);
-  hideWrapperMainContent();
 }
 
 function actionsWrapperStart() {
@@ -51,7 +51,7 @@ function actionsWrapperShow() {
 // -- Wrapper main content -- //
 
 function hideWrapperMainContent() {
-  actionsWrapperMainContent(0, 0, 0);
+  actionsWrapperMainContent(0, 0, 0.8);
 }
 
 function showWrapperMainContent() {

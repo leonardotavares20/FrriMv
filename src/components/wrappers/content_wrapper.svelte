@@ -5,6 +5,7 @@
   import { typeContentWrapper } from "@/lib/stores/wrapper";
   import VideoProgressBar from "../video/video_progress_bar.svelte";
   import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
+  import CarrouselGallery from "../carrousel/carrousel_gallery.svelte";
 
   function handleKeyDownEscape(event: KeyboardEvent) {
     event.code === "Escape" && hideWrapper();
@@ -60,18 +61,7 @@
     {#if $typeContentWrapper === "video"}
       <VideoProgressBar />
     {:else}
-      <div
-        id="carrousel_images"
-        class="w-[97vw] h-[20vh] font-futura_lt opacity-0"
-      >
-        <div
-          class="absolute w-full h-[95%] left-[51.5%] -translate-x-1/2 top-0 flex gap-2 pb-6 pt-2 border-t-hells_red border-t-[1px]"
-        >
-          {#each carrousel_images as image}
-            <img loading="lazy" class="cursor-pointer" src={image.src} alt="" />
-          {/each}
-        </div>
-      </div>
+      <CarrouselGallery />
     {/if}
   </div>
 </div>
