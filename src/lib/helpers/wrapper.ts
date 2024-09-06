@@ -4,59 +4,73 @@ import { lockScroll, unlockScroll } from "./preload";
 
 // -- Wrapper -- //
 
+let timeline: gsap.core.Timeline;
+
+function setupWrapper() {
+  return gsap
+    .timeline({
+      paused: true,
+      onStart: () => actionsWrapperStart(),
+      onComplete: () => actionsWrapperShow(),
+      onReverseComplete: () => actionsWrapperHide(),
+    })
+    .to("#wrapper_content", {
+      bottom: 0,
+      duration: 1,
+      ease: "expo",
+    });
+}
+
 export function showWrapper() {
-  gsap.to("#wrapper_content", {
-    bottom: 0,
-    duration: 1.2,
-    ease: "expo",
-    onStart: () => {
-      lockScroll();
-    },
-    onComplete: () => {
-      actionsWrapperShow();
-    },
-  });
+  timeline = setupWrapper();
+  timeline.play();
 }
 
 export function hideWrapper() {
-  gsap.to("#wrapper_content", {
-    bottom: "100%",
-    duration: 1.5,
-    ease: "expo.inOut",
-    onComplete: () => {
-      actionsWrapperHide();
-    },
-  });
+  timeline.reverse();
 }
 
 // -- Actions wrapper -- //
 
 function actionsWrapperHide() {
   unlockScroll();
-  typeContentWrapper.set("none");
+  typeContentWrapper.set("gallery");
   playVideo.set(false);
   hideWrapperMainContent();
 }
 
-function actionsWrapperShow() {
+function actionsWrapperStart() {
+  lockScroll();
   showWrapperMainContent();
+}
+
+function actionsWrapperShow() {
   playVideo.set(true);
 }
 
 // -- Wrapper main content -- //
 
 function hideWrapperMainContent() {
-  gsap.to("#content_main_wrapper", {
-    opacity: 0,
-    duration: 0.5,
-    ease: "expo.inOut",
-  });
+  actionsWrapperMainContent(0, 0, 0);
 }
 
 function showWrapperMainContent() {
+  actionsWrapperMainContent(1, 1, 1);
+}
+
+function actionsWrapperMainContent(
+  opacity: number,
+  delay: number = 0,
+  duration: number = 1,
+) {
   gsap.to("#content_main_wrapper", {
-    opacity: 1,
-    duration: 0.5,
+    opacity: opacity,
+    duration: duration,
     ease: "expo.inOut",
+  });
+  gsap.to("#carrousel_images", {
+    opacity: opacity,
+    duration: duration,
+    delay: delay,
   });
 }

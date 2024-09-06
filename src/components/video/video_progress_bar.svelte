@@ -33,7 +33,7 @@
   <div class="absolute w-full left-1/2 -translate-x-1/2 top-0">
     <div
       style="width: {$progressVideo?.toFixed(2)}%"
-      class="bg-hells_red z-30 absolute w-0 h-[2px] cursor-pointer top-0 transition-all pointer-events-none"
+      class="bg-hells_red z-50 absolute w-0 h-[2px] cursor-pointer top-0 transition-all pointer-events-none"
     ></div>
     <div
       aria-hidden="true"

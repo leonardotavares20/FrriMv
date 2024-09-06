@@ -1,7 +1,14 @@
 <script lang="ts">
+  import { showWrapper } from "@/lib/helpers/wrapper";
   import { chapters } from "@/lib/assets/home/grid_home";
+  import { typeContentWrapper } from "@/lib/stores/wrapper";
 
   let currentIndex: number | null = null;
+
+  function showGallery() {
+    typeContentWrapper.set("gallery");
+    showWrapper();
+  }
 
   function handleIndex(index: number) {
     currentIndex = index;
@@ -12,7 +19,9 @@
   }
 </script>
 
-<section class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center">
+<section
+  class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center"
+>
   <div></div>
   <div class="grid grid-cols-4 justify-center">
     {#each chapters as chapter, index}
@@ -22,6 +31,7 @@
         href={chapter.href}
         on:mouseleave={handleLeave}
         on:mouseenter={handleIndex.bind(null, index)}
+        on:click={() => index === 3 && showGallery()}
         class="opacity-0 grid cursor-pointer"
       >
         <div
