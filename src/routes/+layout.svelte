@@ -49,7 +49,9 @@
 
 <div id="app" class="app">
   <Header />
-  <ContentWrapper />
+  {#if $preloadFinished}
+    <ContentWrapper />
+  {/if}
   {#if !$preloadFinished && !$firstLoad}
     <Preload on:skipToEnd={skipPreloadToEnd} />
   {/if}
