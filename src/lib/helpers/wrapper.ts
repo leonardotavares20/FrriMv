@@ -15,7 +15,7 @@ function setupWrapper() {
       onReverseComplete: () => actionsWrapperHide(),
     })
     .to("#wrapper_content", {
-      bottom: 0,
+      bottom: "0%",
       duration: 1,
       ease: "expo",
     });
