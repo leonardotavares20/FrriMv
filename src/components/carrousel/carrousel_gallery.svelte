@@ -1,8 +1,8 @@
 <script lang="ts">
-  import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
-  import { indexImageSrc } from "@/lib/stores/carrousel_gallery";
-  import { imageSrc } from "@/lib/stores/carrousel_gallery";
   import gsap from "gsap";
+  import { imageSrc } from "@/lib/stores/carrousel_gallery";
+  import { indexImageSrc } from "@/lib/stores/carrousel_gallery";
+  import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
 
   let currentIndex: number | null = null;
   let carrousel: HTMLDivElement;
@@ -36,8 +36,8 @@
 
     gsap.to("#carrousel", {
       x: `-${x}%`,
-      ease: "power1.inOut",
-      duration: 0.5,
+      ease: "power1.out",
+      duration: 1,
     });
     indexImageSrc.set(index);
     imageSrc.set(target.src);
@@ -46,12 +46,12 @@
 
 <div
   id="carrousel_images"
-  class="w-[98vw] h-[20vh] font-futura_lt opacity-100 border-t-hells_red border-t-[1px]"
+  class="w-[98vw] h-[20vh] font-futura_lt opacity-0 border-t-hells_red border-t-[1px]"
 >
   <div
     id="carrousel"
     bind:this={carrousel}
-    class="absolute w-full h-[95%] left-[51%] -translate-x-1/2 top-0 flex gap-2 pb-6 pt-2"
+    class="absolute w-full h-[95%] left-[50.5%] -translate-x-1/2 top-0 right-0 flex gap-2 pb-6 pt-2"
   >
     {#each carrousel_images as image, index}
       <img
