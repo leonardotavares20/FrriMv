@@ -7,11 +7,20 @@
     calculateTotalWidthImages,
     setupScrollMilleMiglia,
   } from "@/lib/helpers/scroll";
-  import HorizontalScrollCard from "@/components/horizontal_scroll/horizontal_scroll_card.svelte";
   import HorizontalScrollMessage from "@/components/horizontal_scroll/horizontal_scroll_message.svelte";
+  import { typeContentWrapper } from "@/lib/stores/wrapper";
+  import { imageSrc } from "@/lib/stores/carrousel_gallery";
+  import { showWrapper } from "@/lib/helpers/wrapper";
 
   let totalWidth = 0;
   export let images: { src: string; id: number; alt: string; full: boolean }[];
+
+  function showImageWrapper(event: Event) {
+    const target = event.currentTarget as HTMLImageElement;
+    typeContentWrapper.set("gallery");
+    imageSrc.set(target.src);
+    showWrapper();
+  }
 
   beforeNavigate(() => {
     ScrollTrigger.killAll(true);
@@ -51,9 +60,11 @@
           <img
             src={image.src}
             alt={image.alt}
+            aria-hidden="true"
             class:not-full={!image.full}
             class:full={image.full}
-            class="h-[60vh] w-[60vw] object-cover overflow-hidden"
+            on:click={(event) => showImageWrapper(event)}
+            class="h-[60vh] w-[60vw] object-cover overflow-hidden cursor-pointer"
           />
         </div>
       {/each}
