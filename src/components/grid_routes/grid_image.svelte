@@ -1,6 +1,9 @@
 <script lang="ts">
   export let src: string;
   export let alt: string;
+  import ImageWrapper from "../wrappers/image_wrapper.svelte";
 </script>
 
-<img class="h-[100vh] w-full z-10 relative object-cover" {src} {alt} />
+<ImageWrapper sourceImage={src}>
+  <img class="h-[100vh] w-full z-10 relative object-cover" {src} {alt} />
+</ImageWrapper>
