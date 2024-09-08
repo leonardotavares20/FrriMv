@@ -2,12 +2,15 @@
   import PinSection from "@/components/section/pin_section.svelte";
   import ColumnText from "@/components/grid_routes/column_text.svelte";
   import GridColumns from "@/components/grid_routes/grid_columns.svelte";
+  import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 </script>
 
 <GridColumns>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
-      <img src="/becoming/penelope/first.webp" alt="" />
+      <ImageWrapper sourceImage="/becoming/penelope/first.webp">
+        <img src="/becoming/penelope/first.webp" alt="" />
+      </ImageWrapper>
     </div>
   </ColumnText>
   <ColumnText>
@@ -62,7 +65,9 @@
     </ColumnText>
     <ColumnText>
       <div class="h-[100vh] flex items-center">
-        <img src="/becoming/penelope/second.webp" alt="" />
+        <ImageWrapper sourceImage="/becoming/penelope/second.webp">
+          <img src="/becoming/penelope/second.webp" alt="" />
+        </ImageWrapper>
       </div>
     </ColumnText>
   </GridColumns>
