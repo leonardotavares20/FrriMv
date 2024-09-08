@@ -1,12 +1,15 @@
 <script>
   import ColumnText from "@/components/grid_routes/column_text.svelte";
   import GridColumns from "@/components/grid_routes/grid_columns.svelte";
+  import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 </script>
 
 <GridColumns>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
-      <img src="/making/second_section/second.webp" alt="" />
+      <ImageWrapper sourceImage="/making/second_section/second.webp">
+        <img class="self-center" src="/making/second_section/second.webp" alt="" />
+      </ImageWrapper>
     </div>
   </ColumnText>
   <ColumnText>
