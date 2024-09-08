@@ -1,5 +1,5 @@
 <div
-  class="pointer-events-none absolute h-full left-1/2 top-1/2 bottom-1/2 right-1/2 flex h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center"
+  class="pointer-events-none absolute self-baseline left-1/2 top-1/2 bottom-1/2 right-1/2 flex h-[150px] w-[150px] -translate-x-1/2 -translate-y-1/2 cursor-pointer items-center justify-center"
 >
   <svg
     width="52"

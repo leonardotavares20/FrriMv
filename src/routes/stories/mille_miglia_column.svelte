@@ -1,16 +1,18 @@
 <script>
   import ColumnText from "@/components/grid_routes/column_text.svelte";
-  import GridColumns from "@/components/grid_routes/grid_columns.svelte";
+  import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 </script>
 
 <section class="h-[150vh] grid grid-cols-2">
   <ColumnText start>
     <div class="h-full w-full overflow-hidden flex items-center">
-      <img
-        class="w-full h-full object-cover"
-        src="/stories/section/second.webp"
-        alt=""
-      />
+      <ImageWrapper sourceImage="/stories/section/second.webp">
+        <img
+          class="w-full h-full object-cover"
+          src="/stories/section/second.webp"
+          alt="Ferrari"
+        />
+      </ImageWrapper>
     </div>
   </ColumnText>
   <ColumnText>
