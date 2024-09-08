@@ -21,7 +21,7 @@
     autoplay
     loop
     muted
-    class="w-[97vw] cursor-pointer absolute left-1/2 right-1/2 top-0 bottom-0 -translate-x-1/2"
+    class="w-[97vw] cursor-pointer absolute left-1/2 right-1/2 top-0 bottom-0 -translate-x-1/2 self-center"
     src={srcVideo}
   >
     <track kind="captions" />
