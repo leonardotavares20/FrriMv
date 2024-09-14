@@ -1,9 +1,9 @@
 <script lang="ts">
-  export let image: { src: string; id: number; alt: string };
+  export let image: { src: string; id: number; alt: string, indexImage: number };
   import ImageWrapper from "../wrappers/image_wrapper.svelte";
 </script>
 
-<ImageWrapper sourceImage={image.src}>
+<ImageWrapper indexImage={image.indexImage} sourceImage={image.src}>
   <div
     class="w-[60vw] h-[100vh] flex justify-center items-center overflow-hidden"
   >

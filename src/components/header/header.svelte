@@ -1,7 +1,7 @@
 <script lang="ts">
 </script>
 
-<header class="fixed w-[100vw] h-4 z-50 top-6 header">
+<header class="fixed w-[100vw] h-4 z-[200] top-6 header">
   <div
     class="flex justify-between px-5 text-[12px] text-hells_red font-futura_lt uppercase"
   >

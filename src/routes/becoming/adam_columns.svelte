@@ -35,11 +35,11 @@
       </blockquote>
     </div>
   </ColumnText>
-  <ColumnImage src="/becoming/adam/first.webp" alt="Adam" />
+  <ColumnImage indexImage={9} src="/becoming/adam/first.webp" alt="Adam" />
 </GridColumns>
 
 <GridColumns>
-  <ColumnImage src="/becoming/adam/second.webp" alt="Adam" />
+  <ColumnImage indexImage={10} src="/becoming/adam/second.webp" alt="Adam" />
   <ColumnText>
     <div class="max-w-md">
       <blockquote
@@ -49,6 +49,7 @@
           “Adam Driver's performance is wonderfully alive. You can't take your
           eyes off him.”
         </p>
+
         <img class="w-[130px]" src="/logo/vulture.webp" alt="" />
       </blockquote>
     </div>

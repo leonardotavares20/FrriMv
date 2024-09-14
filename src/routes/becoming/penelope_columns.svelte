@@ -5,10 +5,10 @@
   import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 </script>
 
-<GridColumns>
+e<GridColumns>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
-      <ImageWrapper sourceImage="/becoming/penelope/first.webp">
+      <ImageWrapper indexImage={15} sourceImage="/becoming/penelope/first.webp">
         <img src="/becoming/penelope/first.webp" alt="" />
       </ImageWrapper>
     </div>
@@ -65,8 +65,13 @@
     </ColumnText>
     <ColumnText>
       <div class="h-[100vh] flex items-center">
-        <ImageWrapper sourceImage="/becoming/penelope/second.webp">
-          <img src="/becoming/penelope/second.webp" alt="" />
+        <ImageWrapper
+          indexImage={16}
+          sourceImage="/becoming/penelope/second.webp"
+        >
+          <div class="h-full w-full flex items-center">
+            <img src="/becoming/penelope/second.webp" alt="" />
+          </div>
         </ImageWrapper>
       </div>
     </ColumnText>

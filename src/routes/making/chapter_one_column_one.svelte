@@ -42,8 +42,15 @@
   </ColumnText>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
-      <ImageWrapper sourceImage="/making/first_section/first.webp">
-        <img class="self-center" src="/making/first_section/first.webp" alt="" />
+      <ImageWrapper
+        indexImage={21}
+        sourceImage="/making/first_section/first.webp"
+      >
+        <img
+          class="self-center"
+          src="/making/first_section/first.webp"
+          alt=""
+        />
       </ImageWrapper>
     </div>
   </ColumnText>

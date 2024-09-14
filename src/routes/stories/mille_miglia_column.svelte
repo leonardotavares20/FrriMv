@@ -6,7 +6,7 @@
 <section class="h-[150vh] grid grid-cols-2">
   <ColumnText start>
     <div class="h-full w-full overflow-hidden flex items-center">
-      <ImageWrapper sourceImage="/stories/section/second.webp">
+      <ImageWrapper indexImage={30} sourceImage="/stories/section/second.webp">
         <img
           class="w-full h-full object-cover"
           src="/stories/section/second.webp"

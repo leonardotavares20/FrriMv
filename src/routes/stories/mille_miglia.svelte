@@ -9,6 +9,6 @@
 
 <VideoPreview srcVideo="/videos/stories/mille-miglia.mp4" />
 <MilleMigliaDescription />
-<SectionImage src="/stories/section/first.webp" alt="Mille Miglia" />
+<SectionImage indexImage={29} src="/stories/section/first.webp" alt="Mille Miglia" />
 <MilleMigliaColumn />
 <MilleMigliaHorizontalScroll images={mille_miglia_images} />

@@ -12,11 +12,13 @@
 />
 <BuildingPerfectionDescription />
 <SectionImage
+  indexImage={22}
   src="/making/second_section/first.webp"
   alt="Building Perfection"
 />
 <BuldingPerfectionColumnOne />
 <SectionImage
+  indexImage={24}
   src="/making/second_section/third.webp"
   alt="Building Perfection"
 />
