@@ -11,7 +11,12 @@
   import HorizontalScrollMessage from "@/components/horizontal_scroll/horizontal_scroll_message.svelte";
 
   let totalWidth = 0;
-  export let images: { src: string; id: number; alt: string }[];
+  export let images: {
+    src: string;
+    id: number;
+    alt: string;
+    indexImage: number;
+  }[];
 
   beforeNavigate(() => {
     ScrollTrigger.killAll(true);
@@ -36,7 +41,10 @@
   id="wrapper_scroll"
   class="h-[200vh] flex justify-center w-[100vw] teste overflow-hidden"
 >
-  <div id="container_scroll_building_perfection" class="sticky h-svh w-[400vw] top-0">
+  <div
+    id="container_scroll_building_perfection"
+    class="sticky h-svh w-[400vw] top-0"
+  >
     <HorizontalScrollMessage />
     <div
       id="scroll_building_perfection"
