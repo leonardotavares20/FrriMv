@@ -8,19 +8,16 @@
     setupScrollMilleMiglia,
   } from "@/lib/helpers/scroll";
   import HorizontalScrollMessage from "@/components/horizontal_scroll/horizontal_scroll_message.svelte";
-  import { typeContentWrapper } from "@/lib/stores/wrapper";
-  import { imageSrc } from "@/lib/stores/carrousel_gallery";
-  import { showWrapper } from "@/lib/helpers/wrapper";
+  import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 
   let totalWidth = 0;
-  export let images: { src: string; id: number; alt: string; full: boolean }[];
-
-  function showImageWrapper(event: Event) {
-    const target = event.currentTarget as HTMLImageElement;
-    typeContentWrapper.set("gallery");
-    imageSrc.set(target.src);
-    showWrapper();
-  }
+  export let images: {
+    src: string;
+    id: number;
+    alt: string;
+    full: boolean;
+    indexImage: number;
+  }[];
 
   beforeNavigate(() => {
     ScrollTrigger.killAll(true);
@@ -53,20 +50,21 @@
       class="h-[100vh] flex gap-4 absolute pl-5 pr-[60px] left-0"
     >
       {#each images as image}
-        <div
-          class="w-[60vw] h-[100vh] flex justify-center items-center overflow-hidden"
-          class:full={image.full}
-        >
-          <img
-            src={image.src}
-            alt={image.alt}
-            aria-hidden="true"
-            class:not-full={!image.full}
+        <ImageWrapper indexImage={image.indexImage} sourceImage={image.src}>
+          <div
+            class="w-[60vw] h-[100vh] flex justify-center items-center overflow-hidden"
             class:full={image.full}
-            on:click={(event) => showImageWrapper(event)}
-            class="h-[60vh] w-[60vw] object-cover overflow-hidden cursor-pointer"
-          />
-        </div>
+          >
+            <img
+              src={image.src}
+              alt={image.alt}
+              aria-hidden="true"
+              class:not-full={!image.full}
+              class:full={image.full}
+              class="h-[60vh] w-[60vw] object-cover overflow-hidden cursor-pointer"
+            />
+          </div>
+        </ImageWrapper>
       {/each}
     </div>
   </div>
@@ -74,13 +72,13 @@
 
 <style>
   .full {
-    width: 10%;
+    width: 20vw;
     height: 100vh;
   }
 
   .full img {
     height: 60vh;
-    width: 100%;
+    min-width: 20vw;
   }
 
   .not-full {
