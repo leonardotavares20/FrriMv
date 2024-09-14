@@ -7,8 +7,15 @@
 <GridColumns>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
-      <ImageWrapper sourceImage="/making/second_section/second.webp">
-        <img class="self-center" src="/making/second_section/second.webp" alt="" />
+      <ImageWrapper
+        indexImage={23}
+        sourceImage="/making/second_section/second.webp"
+      >
+        <img
+          class="self-center"
+          src="/making/second_section/second.webp"
+          alt=""
+        />
       </ImageWrapper>
     </div>
   </ColumnText>
