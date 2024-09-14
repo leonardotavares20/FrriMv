@@ -1,38 +1,10 @@
 <script lang="ts">
-  import gsap from "gsap";
-  import { imageSrc } from "@/lib/stores/carrousel_gallery";
   import { selectedIndexImage } from "@/lib/stores/carrousel_gallery";
   import { carrousel_images } from "@/lib/assets/carrousel/carrousel_images";
+  import { setCurrentImage } from "@/lib/helpers/carrousel";
 
-  let carrousel: HTMLDivElement;
-
-  function setCurrentImage(event: Event, index: number) {
-    const target = event.currentTarget as HTMLImageElement;
-
-    const imageOffset = target.offsetLeft;
-    const carrouselOffset = carrousel.offsetLeft;
-
-    const maxOffset =
-      ((carrousel.scrollWidth - carrousel.clientWidth) /
-        carrousel.clientWidth) *
-      100;
-
-    const x = Math.min(
-      Math.max(
-        ((imageOffset - carrouselOffset) / carrousel.offsetWidth) * 100,
-        0,
-      ),
-      maxOffset,
-    );
-
-    gsap.to("#carrousel", {
-      x: `-${x}%`,
-      ease: "power1.out",
-      duration: 1,
-    });
-
-    selectedIndexImage.set(index);
-    imageSrc.set(target.src);
+  function setCarrousel(event: Event | null, index: number) {
+    setCurrentImage(event, index);
   }
 </script>
 
@@ -42,14 +14,13 @@
 >
   <div
     id="carrousel"
-    bind:this={carrousel}
     class="absolute w-full h-[95%] left-[50.5%] -translate-x-1/2 top-0 right-0 flex gap-2 pb-6 pt-2"
   >
     {#each carrousel_images as image, index}
       <img
         loading="lazy"
         aria-hidden="true"
-        on:click={(event) => setCurrentImage(event, index)}
+        on:click={(event) => setCarrousel(event, index)}
         class:inactive={$selectedIndexImage !== index}
         class:activeImage={$selectedIndexImage === index}
         src={image.src}
