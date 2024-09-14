@@ -13,7 +13,7 @@
 
   function showImageWrapper() {
     typeContentWrapper.set("gallery");
-    setCurrentImage(null, indexImage);
+    setCurrentImage(null, indexImage - 1);
     selectedIndexImage.set(indexImage - 1);
     imageSrc.set(sourceImage);
     showWrapper();
