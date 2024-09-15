@@ -2,39 +2,45 @@ import { imageSrc, selectedIndexImage } from "../stores/carrousel_gallery";
 import gsap from "gsap";
 
 export function setCurrentImage(event: Event | null, index: number) {
-  const images = document.querySelectorAll("#carrousel img");
-  const carrousel = document.querySelector("#carrousel") as HTMLDivElement;
-  let target;
+  const target = getTargetImage(event, index);
+  const x = calculateOffset(target);
 
-  if (images && event === null) {
-    target = images[index] as HTMLImageElement;
+  moveCarrousel(x);
+
+  if (target) {
+    updateStores(target, index);
   }
+}
 
+function getTargetImage(
+  event: Event | null,
+  index: number,
+): HTMLImageElement | null {
   if (event) {
-    target = event?.currentTarget as HTMLImageElement;
+    return event.currentTarget as HTMLImageElement;
   }
 
-  const imageOffset = target?.offsetLeft ?? 0;
-  const carrouselOffset = carrousel.offsetLeft;
+  const images = document.querySelectorAll("#carrousel img");
+  return images[index] as HTMLImageElement;
+}
 
+function calculateOffset(target: HTMLImageElement | null): number {
+  if (!target) return 0;
+
+  const carrousel = document.querySelector("#carrousel") as HTMLDivElement;
+  const imageOffset = target.offsetLeft;
+  const carrouselOffset = carrousel.offsetLeft;
   const maxOffset =
     ((carrousel.scrollWidth - carrousel.clientWidth) / carrousel.clientWidth) *
     100;
 
-  const x = Math.min(
+  return Math.min(
     Math.max(
       ((imageOffset - carrouselOffset) / carrousel.offsetWidth) * 100,
       0,
     ),
     maxOffset,
   );
-
-  moveCarrousel(x);
-
-  if (target) {
-    selectedIndexImage.set(index);
-    imageSrc.set(target.src);
-  }
 }
 
 function moveCarrousel(x: number) {
@@ -43,4 +49,9 @@ function moveCarrousel(x: number) {
     ease: "power1.out",
     duration: 1,
   });
+}
+
+function updateStores(target: HTMLImageElement, index: number) {
+  selectedIndexImage.set(index);
+  imageSrc.set(target.src);
 }
