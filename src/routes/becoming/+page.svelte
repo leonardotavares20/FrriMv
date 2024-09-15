@@ -19,19 +19,26 @@
     });
   });
 
+  let progressBar: HTMLDivElement;
+
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);
 
     ScrollTrigger.create({
       trigger: "#app",
       start: "top top",
+      scrub: true,
       end: "bottom bottom",
       onUpdate: (self) => {
-        // gsap.to(progressBar, {
-        //   width: self.progress * 100 + "%",
-        // });
-        if (self.progress == 1) {
-          console.log("self.progress", self.progress);
+        if (self.progress > 0.9) {
+          const progressAfter90 = (self.progress - 0.9) * 10;
+          gsap.to(progressBar, {
+            width: progressAfter90 * 100 + "%",
+            duration: 0.3,
+            ease: "power2.out",
+          });
+        } else {
+          gsap.to(progressBar, { width: "0%", duration: 0.3 });
         }
       },
     });
@@ -50,4 +57,8 @@
     <Adam />
     <Penelope />
   </PageWrapper>
+  <div
+    bind:this={progressBar}
+    class="fixed w-0 h-[10px] bg-hells_red bottom-0"
+  ></div>
 </NavigateTransition>
