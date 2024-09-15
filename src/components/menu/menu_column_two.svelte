@@ -3,10 +3,17 @@
   import NeonCopyTerms from "../neon/neon_copy_terms.svelte";
   import { hideMenu } from "@/lib/helpers/menu";
   import { menuOpen } from "@/lib/stores/menu";
+  import { showWrapper } from "@/lib/helpers/wrapper";
+  import { typeContentWrapper } from "@/lib/stores/wrapper";
 
   let currentIndex: number | null = null;
 
-  function handleMenu() {
+  function handleMenu(index: number) {
+    if (index === 3) {
+      typeContentWrapper.set("gallery");
+      showWrapper();
+      return;
+    }
     menuOpen.set(false);
     hideMenu();
   }
@@ -30,7 +37,7 @@
       {#each menu as item, index}
         <a class="w-full" href={item.href}>
           <li
-            on:click={handleMenu}
+            on:click={() => handleMenu(index)}
             aria-hidden="true"
             class:active={index === currentIndex}
             class:first={item.first}
