@@ -1,4 +1,12 @@
 <script lang="ts">
+  import { showMenu } from "@/lib/helpers/menu";
+  import { hideMenu } from "@/lib/helpers/menu";
+  import { menuOpen } from "@/lib/stores/menu";
+
+  function handleMenu() {
+    $menuOpen ? hideMenu() : showMenu();
+    $menuOpen = !$menuOpen;
+  }
 </script>
 
 <header class="fixed w-[100vw] h-4 z-[200] top-6 header">
@@ -15,7 +23,11 @@
         <a class="underline" href="/">White</a>
       </div>
       <div>
-        <a class="underline" href="/">Menu</a>
+        <span
+          class="underline cursor-pointer"
+          on:click={handleMenu}
+          aria-hidden="true">{@html $menuOpen ? "Close" : "Menu"}</span
+        >
       </div>
     </div>
   </div>

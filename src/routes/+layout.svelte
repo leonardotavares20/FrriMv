@@ -3,13 +3,14 @@
   import { onMount } from "svelte";
   import { get } from "svelte/store";
   import { page } from "$app/stores";
-  import Header from "@/components/header/header.svelte";
   import { afterNavigate } from "$app/navigation";
+  import Header from "@/components/header/header.svelte";
+  import MenuGrid from "@/components/menu/menu_grid.svelte";
   import Preload from "@/components/preload/preload.svelte";
   import { preloadFinished, firstLoad } from "@/lib/stores/preload";
+  import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
   import { PreloadTimeline } from "@/lib/animations/timelines/PreloadTimeline";
   import { SkipPreloadTimeline } from "@/lib/animations/timelines/SkipPreloadTimeline";
-  import ContentWrapper from "@/components/wrappers/content_wrapper.svelte";
 
   let timeline: GSAPTimeline;
 
@@ -51,6 +52,7 @@
   <Header />
   {#if $preloadFinished}
     <ContentWrapper />
+    <MenuGrid />
   {/if}
   {#if !$preloadFinished && !$firstLoad}
     <Preload on:skipToEnd={skipPreloadToEnd} />

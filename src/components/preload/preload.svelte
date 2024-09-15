@@ -21,7 +21,7 @@
   on:click={skipToEnd}
   aria-hidden="true"
   aria-label="Skip to end"
-  class="bg-black h-dvh w-svw fixed z-[100] flex flex-col justify-center items-center"
+  class="bg-black h-dvh w-svw fixed z-[300] flex flex-col justify-center items-center"
 >
   <div class="absolute flex justify-center z-10 h-[100vh] w-full">
     <img
