@@ -1,3 +1,3 @@
 # FrriMv
 
-![Alt Text](./static/readme.png)
+<!--![Alt Text](./static/readme.png) -->
