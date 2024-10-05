@@ -1,0 +1,32 @@
+version: "3"
+
+services:
+  site:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: "node"
+    environment:
+      - NODE_ENV=production
+    env_file:
+      - .env
+      - .env.production
+    restart: unless-stopped
+    ports:
+      - 3000:3000
+    logging:
+      driver: 'json-file'
+      options:
+        max-size: '10m'
+        max-file: '3'
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    deploy:
+      resources:
+        limits:
+          cpus: 0.5
+          memory: 512M
