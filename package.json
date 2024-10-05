@@ -37,6 +37,7 @@
   },
   "type": "module",
   "dependencies": {
+    "@sveltejs/adapter-node": "^5.2.5",
     "gsap": "^3.12.5",
     "lodash.throttle": "^4.1.1"
   }
