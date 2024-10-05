@@ -11,8 +11,8 @@
 
   function onProgressClick(event: MouseEvent) {
     const progressBar = event.currentTarget as HTMLDivElement;
-    const rect = progressBar.getBoundingClientRect();
-    const clickX = event.clientX - rect.left;
+    const progressBarProps = progressBar.getBoundingClientRect();
+    const clickX = event.clientX - progressBarProps.left;
     const clickPercentage = clickX / progressBar.offsetWidth;
     const newTime = clickPercentage * $videoDuration;
 
@@ -43,14 +43,14 @@
     <div class="h-8 flex items-end w-full justify-between">
       <div class="flex w-16 justify-between">
         <button
-          class:test={!$playVideo}
+          class:control-status={!$playVideo}
           on:click={() => playVideo.set(true)}
           class="text-white uppercase text-xs hover:underline"
         >
           Play
         </button>
         <button
-          class:test={$playVideo}
+          class:control-status={$playVideo}
           on:click={() => playVideo.set(false)}
           class="text-white uppercase text-xs hover:underline"
         >
@@ -77,7 +77,7 @@
 </div>
 
 <style>
-  .test {
+  .control-status {
     @apply text-dark_jungle_green;
   }
 </style>

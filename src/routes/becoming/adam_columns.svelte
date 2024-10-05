@@ -1,7 +1,7 @@
 <script>
+  import ColumnText from "@/components/grid_routes/column_text.svelte";
   import GridColumns from "@/components/grid_routes/grid_columns.svelte";
   import ColumnImage from "@/components/grid_routes/column_image.svelte";
-  import ColumnText from "@/components/grid_routes/column_text.svelte";
 </script>
 
 <GridColumns>
