@@ -1,12 +1,8 @@
 FROM node:20.11-alpine AS build
 WORKDIR /app
-COPY  package.json package-lock.json ./
-RUN npm ci
+COPY  package.json pnpm-lock.yaml ./
+RUN npm install -g pnpm
+RUN pnpm install
 COPY . .
-RUN npm run build
-
-FROM node:20.11-alpine
-WORKDIR /app
-COPY --from=build /app/build ./build
+RUN chown -R node:node /app
 USER node:node
-CMD ["node", "build/index.js"]
