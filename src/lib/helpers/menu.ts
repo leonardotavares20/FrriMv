@@ -22,8 +22,19 @@ function animateMenu(
 
 export function showMenu() {
   animateMenu(0, 0, "all");
+  handleWrapper(0);
 }
 
 export function hideMenu() {
   animateMenu("-100%", "100%", "none");
+  handleWrapper(1, 0.5);
+}
+
+function handleWrapper(opacity: number, delay: number = 0) {
+  gsap.to("#column_one_wrapper", {
+    opacity: opacity,
+    ease: "power4.inOut",
+    duration: 2,
+    delay: delay,
+  });
 }
