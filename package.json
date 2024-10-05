@@ -1,7 +1,8 @@
 {
-  "name": "prsche",
+  "name": "frrimv",
   "version": "0.0.1",
   "private": true,
+  "type": "module",
   "scripts": {
     "dev": "vite dev",
     "build": "vite build",
@@ -35,7 +36,6 @@
     "vite": "^5.3.5",
     "vitest": "^2.0.5"
   },
-  "type": "module",
   "dependencies": {
     "@sveltejs/adapter-node": "^5.2.5",
     "gsap": "^3.12.5",
