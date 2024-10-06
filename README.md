@@ -6,7 +6,9 @@
 ``
 docker compose up -d
 ``
+<br>
 or
+<br>
 ``
 docker compose up --build
 ``
@@ -15,10 +17,12 @@ docker compose up --build
 ``
 docker compose up dev
 ``
+<br>
 open: http://localhost:5173
 
 ## Production
 ``
 docker compose up production
 ``
+<br>
 open: http://localhost:3000
