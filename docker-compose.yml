@@ -1,5 +1,5 @@
 services:
-  site:
+  dev:
     build:
       context: .
       dockerfile: Dockerfile
@@ -28,3 +28,29 @@ services:
           cpus: 0.5
           memory: 512M
     command: ["pnpm", "run", "dev", "--host"]
+
+  production:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    user: "node"
+    environment:
+      - NODE_ENV=production
+    restart: unless-stopped
+    volumes:
+      - ./logs:/app/logs
+    ports:
+      - 3000:3000
+    logging:
+      driver: "json-file"
+      options:
+        max-size: "10m"
+        max-file: "3"
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:3000"]
+      interval: 10s
+      timeout: 10s
+      retries: 3
+      start_period: 30s
+    command: ["pnpm", "run", "start"]
+    
