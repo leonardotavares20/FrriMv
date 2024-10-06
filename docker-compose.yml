@@ -3,6 +3,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: dev
     user: "node"
     environment:
       - NODE_ENV=production
@@ -33,6 +34,7 @@ services:
     build:
       context: .
       dockerfile: Dockerfile
+      target: production
     user: "node"
     environment:
       - NODE_ENV=production
