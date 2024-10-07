@@ -12,7 +12,6 @@ export class PreloadTimeline extends BaseTimeline {
     if (this.inHome) {
       const mql = window.matchMedia("(max-width: 1024px)");
       if (mql.matches) {
-        console.log("matches");
         this.timeline
           .add(preloadTimeline())
           .to(
