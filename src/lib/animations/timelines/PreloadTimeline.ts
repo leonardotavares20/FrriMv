@@ -12,6 +12,7 @@ export class PreloadTimeline extends BaseTimeline {
     if (this.inHome) {
       const mql = window.matchMedia("(max-width: 1024px)");
       if (mql.matches) {
+        console.log("matches");
         this.timeline
           .add(preloadTimeline())
           .to(
@@ -25,14 +26,14 @@ export class PreloadTimeline extends BaseTimeline {
                 completeActions();
               },
             },
-            0.5,
+            7.9,
           )
           .to(
             "#preload",
             {
               opacity: 0,
             },
-            1,
+            8.4,
           );
         return;
       }
