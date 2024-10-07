@@ -11,7 +11,12 @@
   import HorizontalScrollMessage from "@/components/horizontal_scroll/horizontal_scroll_message.svelte";
 
   let totalWidth = 0;
-  export let images: { src: string; id: number; alt: string }[];
+  export let images: {
+    indexImage: number;
+    src: string;
+    id: number;
+    alt: string;
+  }[];
 
   beforeNavigate(() => {
     ScrollTrigger.killAll(true);
