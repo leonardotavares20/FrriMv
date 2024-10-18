@@ -23,7 +23,7 @@
   class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center"
 >
   <div></div>
-  <div class="grid grid-cols-4 justify-center">
+  <div class="grid grid-cols-3 xl:grid-cols-4 justify-center">
     {#each chapters as chapter, index}
       <a
         id="column"
@@ -32,7 +32,7 @@
         on:mouseleave={handleLeave}
         on:mouseenter={handleIndex.bind(null, index)}
         on:click={() => index === 3 && showGallery()}
-        class="opacity-0 grid cursor-pointer"
+        class={`opacity-0 grid cursor-pointer ${index === chapters.length - 1 ? 'hidden xl:block' : ''}`}
       >
         <div
           class:first={index === 0}
