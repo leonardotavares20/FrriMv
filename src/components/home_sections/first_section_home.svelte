@@ -32,12 +32,12 @@
         on:mouseleave={handleLeave}
         on:mouseenter={handleIndex.bind(null, index)}
         on:click={() => index === 3 && showGallery()}
-        class={`opacity-0 grid cursor-pointer ${index === chapters.length - 1 ? 'hidden xl:block' : ''}`}
+        class={`opacity-0 grid cursor-pointer ${index === chapters.length - 1 && "max-xl:hidden"}`}
       >
         <div
           class:first={index === 0}
           class:last={index === 3}
-          class="p-3 h-full grid grid-rows-column_row text-center"
+          class={`p-3 h-full grid grid-rows-column_row text-center ${index === 2 && "max-xl: pr-0"}`}
         >
           <div
             class="w-full relative overflow-hidden cursor-pointer object-cover h-full self-end"
