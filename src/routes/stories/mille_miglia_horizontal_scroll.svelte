@@ -1,7 +1,6 @@
 <script lang="ts">
   import { gsap } from "gsap";
   import { onMount } from "svelte";
-  import { beforeNavigate } from "$app/navigation";
   import ScrollTrigger from "gsap/dist/ScrollTrigger";
   import {
     calculateTotalWidthImages,
@@ -18,10 +17,6 @@
     full: boolean;
     indexImage: number;
   }[];
-
-  beforeNavigate(() => {
-    ScrollTrigger.killAll(true);
-  });
 
   onMount(() => {
     gsap.registerPlugin(ScrollTrigger);

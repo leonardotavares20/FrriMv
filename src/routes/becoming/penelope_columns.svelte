@@ -5,7 +5,7 @@
   import ImageWrapper from "@/components/wrappers/image_wrapper.svelte";
 </script>
 
-e<GridColumns>
+w<GridColumns>
   <ColumnText>
     <div class="h-[100vh] flex items-center">
       <ImageWrapper indexImage={15} sourceImage="/becoming/penelope/first.webp">

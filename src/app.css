@@ -53,6 +53,10 @@
     @apply h-dvh bg-black;
   }
 
+  img {
+    user-select: none;
+  }
+
   *::selection {
     @apply bg-[#FDF003] text-black;
   }
