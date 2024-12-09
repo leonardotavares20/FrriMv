@@ -7,6 +7,7 @@
   import FirstSectionHome from "@/components/home_sections/first_section_home.svelte";
   import SecondSectionHome from "@/components/home_sections/second_section_home.svelte";
   import NavigateTransition from "@/components/transitions/navigate_transition.svelte";
+  import { typeAnimationHero } from "@/lib/stores/type_animation_hero";
 
   $: $preloadFinished && firstLoad.set(true);
 
@@ -14,6 +15,7 @@
 
   onMount(() => {
     $firstLoad && showHome();
+    typeAnimationHero.set("default");
   });
 </script>
 

@@ -3,7 +3,7 @@
   import { onMount } from "svelte";
   import { afterNavigate } from "$app/navigation";
   import { showColumnOneGrid } from "@/lib/helpers/grid";
-  import { GridRoutesTimeline } from "@/lib/animations/timelines/GridRoutesTimeline";
+  import { AnimationHero } from "@/lib/animations/timelines/AnimationHero";
 
   import ChapterOne from "./chapter_one.svelte";
   import Observer from "@/components/observer/observer.svelte";
@@ -18,7 +18,7 @@
   });
 
   onMount(() => {
-    new GridRoutesTimeline(false).getTimeline().play();
+    new AnimationHero(false).getTimeline().play();
   });
 </script>
 

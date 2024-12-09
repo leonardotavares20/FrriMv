@@ -20,7 +20,7 @@
 </script>
 
 <section
-  class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center"
+  class="w-svw grid h-[100vh] p-6 pt-0 grid-rows-home_rows justify-center max-xl:pb-4 max-lg:pb-0"
 >
   <div></div>
   <div class="grid grid-cols-3 xl:grid-cols-4 justify-center">
@@ -37,7 +37,7 @@
         <div
           class:first={index === 0}
           class:last={index === 3}
-          class={`p-3 h-full grid grid-rows-column_row text-center ${index === 2 && "max-xl: pr-0"}`}
+          class={`p-3 h-full grid grid-rows-column_row text-center max-lg:pb-0 max-lg:px-1`}
         >
           <div
             class="w-full relative overflow-hidden cursor-pointer object-cover h-full self-end"
@@ -64,7 +64,7 @@
   </div>
   <img
     id="logo_ferrari"
-    class="w-svw h-full pt-6 bottom-0 self-end opacity-0"
+    class="w-svw h-full pt-6 bottom-0 self-end opacity-0 max-xl:pt-1"
     src="/logo/logo.svg"
     alt="Ferrari"
   />
